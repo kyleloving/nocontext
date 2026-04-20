@@ -1,0 +1,39 @@
+name: Monitor MCP Servers
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # every 15 minutes
+  workflow_dispatch:         # allow manual runs
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    name: Check servers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests pyyaml
+
+      - name: Run checks
+        # continue even if some servers are down so we always commit results
+        continue-on-error: true
+        run: python scripts/check.py
+
+      - name: Commit results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/
+          git diff --cached --quiet || git commit -m "chore: update status $(date -u '+%Y-%m-%dT%H:%M:%SZ')"
+          git push

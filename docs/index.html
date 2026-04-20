@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoContext — MCP Server Status</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f1117;
+      --surface:  #1a1d27;
+      --surface2: #1e2130;
+      --border:   #2a2d3a;
+      --text:     #e2e8f0;
+      --muted:    #64748b;
+      --up:       #22c55e;
+      --degraded: #f59e0b;
+      --down:     #ef4444;
+      --accent:   #6366f1;
+      --radius:   10px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* ── Header ─────────────────────────────────────────────── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+    h1 span { color: var(--accent); }
+
+    .overall {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid;
+    }
+    .overall.all-up    { color: var(--up);      border-color: var(--up);      background: #052e1640; }
+    .overall.some-down { color: var(--down);    border-color: var(--down);    background: #450a0a40; }
+    .overall.degraded  { color: var(--degraded);border-color: var(--degraded);background: #451a0340; }
+
+    .blink { animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    /* ── Meta / filters ──────────────────────────────────────── */
+    .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.25rem; }
+
+    .tag-filter { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .tag-btn {
+      font-size: 0.73rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .tag-btn:hover, .tag-btn.active { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Server card ─────────────────────────────────────────── */
+    .server-list { display: flex; flex-direction: column; gap: 1px; }
+
+    .server-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-top {
+      display: grid;
+      grid-template-columns: 14px 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .status-pip {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .status-pip.up       { background: var(--up);       box-shadow: 0 0 7px var(--up);       animation: blink 2.5s infinite; }
+    .status-pip.degraded { background: var(--degraded); box-shadow: 0 0 7px var(--degraded); }
+    .status-pip.down     { background: var(--down);     box-shadow: 0 0 7px var(--down);     }
+    .status-pip.unknown  { background: var(--muted); }
+
+    .server-info { min-width: 0; }
+    .server-name { font-weight: 600; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .server-url  { font-size: 0.73rem; color: var(--muted); margin-top: 0.1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .server-url a { color: inherit; text-decoration: none; }
+    .server-url a:hover { color: var(--accent); }
+
+    .server-tags { display: flex; gap: 0.3rem; margin-top: 0.4rem; flex-wrap: wrap; }
+    .tag { font-size: 0.65rem; padding: 0.1rem 0.45rem; border-radius: 999px; background: #2a2d3a; color: var(--muted); }
+    .transport-tag { color: var(--accent); background: #1e1f3a; }
+
+    .server-stats { text-align: right; flex-shrink: 0; min-width: 90px; }
+    .latency      { font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .uptime-pct   { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+    .error-txt    { font-size: 0.72rem; color: var(--down);   margin-top: 0.15rem; max-width: 160px; }
+    .note-txt     { font-size: 0.72rem; color: var(--muted);  margin-top: 0.15rem; }
+
+    /* ── Sparkline ───────────────────────────────────────────── */
+    .sparkline-row {
+      padding: 0 1.25rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .sparkline-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sparkline {
+      display: flex;
+      gap: 2px;
+      flex: 1;
+      height: 24px;
+      align-items: flex-end;
+    }
+
+    .spark-bar {
+      flex: 1;
+      border-radius: 2px;
+      cursor: default;
+      min-width: 3px;
+      position: relative;
+      transition: opacity 0.1s;
+    }
+    .spark-bar:hover { opacity: 0.75; }
+    .spark-bar.up       { background: var(--up); }
+    .spark-bar.degraded { background: var(--degraded); }
+    .spark-bar.down     { background: var(--down); }
+    .spark-bar.unknown  { background: var(--border); }
+
+    .spark-label { font-size: 0.68rem; color: var(--muted); white-space: nowrap; }
+
+    /* ── Tooltip ────────────────────────────────────────────── */
+    #tooltip {
+      position: fixed;
+      background: #0d0f18;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.75rem;
+      color: var(--text);
+      pointer-events: none;
+      z-index: 1000;
+      display: none;
+      white-space: nowrap;
+    }
+
+    /* ── Incidents panel ────────────────────────────────────── */
+    .incidents-section { margin-top: 2.5rem; }
+    .incidents-section h2 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; }
+
+    .incident-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .incident-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--down);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .incident-item.resolved { border-left-color: var(--muted); opacity: 0.7; }
+
+    .incident-server { font-weight: 600; font-size: 0.85rem; }
+    .incident-time   { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+    .incident-badge  {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .incident-badge.ongoing  { background: #450a0a60; color: var(--down);  border: 1px solid var(--down); }
+    .incident-badge.resolved { background: #1e2130;   color: var(--muted); border: 1px solid var(--border); }
+
+    .no-incidents { font-size: 0.85rem; color: var(--muted); padding: 1rem 0; }
+
+    /* ── Loading / error ────────────────────────────────────── */
+    #loading, #error-msg { text-align: center; padding: 4rem; color: var(--muted); }
+
+    footer { margin-top: 3rem; text-align: center; font-size: 0.78rem; color: var(--muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div id="tooltip"></div>
+<div class="container">
+
+  <header>
+    <h1>No<span>Context</span></h1>
+    <div class="overall" id="overall-badge" style="display:none"></div>
+  </header>
+
+  <p class="meta" id="meta-line">Loading&hellip;</p>
+
+  <div class="tag-filter" id="tag-filter"></div>
+
+  <div id="loading">Fetching status&hellip;</div>
+  <div id="error-msg" style="display:none">Failed to load status data.</div>
+
+  <div id="server-list" class="server-list" style="display:none"></div>
+
+  <div class="incidents-section" id="incidents-section" style="display:none">
+    <h2>Incident History</h2>
+    <div class="incident-list" id="incident-list"></div>
+  </div>
+
+  <footer>
+    Checks every 15&nbsp;minutes via GitHub Actions &mdash;
+    <a href="https://github.com/loving-kyle/nocontext" target="_blank">View on GitHub</a>
+  </footer>
+</div>
+
+<script>
+const STATUS_URL    = "./data/status.json";
+const INCIDENTS_URL = "./data/incidents.json";
+
+const tooltip = document.getElementById("tooltip");
+
+// ── Helpers ────────────────────────────────────────────────────
+
+function latencyStyle(ms) {
+  if (ms == null) return "";
+  if (ms < 300)  return "color:var(--up)";
+  if (ms < 800)  return "color:var(--degraded)";
+  return "color:var(--down)";
+}
+
+function fmtDatetime(iso) {
+  try { return new Date(iso).toLocaleString(undefined, { dateStyle:"medium", timeStyle:"short" }); }
+  catch { return iso; }
+}
+
+function timeAgo(iso) {
+  const s = Math.round((Date.now() - new Date(iso)) / 1000);
+  if (s < 60)   return `${s}s ago`;
+  if (s < 3600) return `${Math.round(s/60)}m ago`;
+  if (s < 86400) return `${Math.round(s/3600)}h ago`;
+  return `${Math.round(s/86400)}d ago`;
+}
+
+function fmtDuration(min) {
+  if (min == null) return "";
+  if (min < 60) return `${min}m`;
+  return `${Math.round(min / 60 * 10) / 10}h`;
+}
+
+// ── Tag filter ────────────────────────────────────────────────
+
+let activeTag = null;
+let allServers = [];
+
+function setupTagFilter(servers) {
+  const tags = [...new Set(servers.flatMap(s => s.tags || []))].sort();
+  const container = document.getElementById("tag-filter");
+  container.innerHTML = "";
+  if (!tags.length) return;
+
+  [["", "all"], ...tags.map(t => [t, t])].forEach(([val, label]) => {
+    const btn = document.createElement("button");
+    btn.className = "tag-btn" + (val === (activeTag ?? "") ? " active" : "");
+    btn.textContent = label;
+    btn.addEventListener("click", () => {
+      activeTag = val || null;
+      container.querySelectorAll(".tag-btn").forEach(b =>
+        b.classList.toggle("active", b === btn));
+      renderServers(allServers);
+    });
+    container.appendChild(btn);
+  });
+}
+
+// ── Sparkline ──────────────────────────────────────────────────
+
+function buildSparkline(checks) {
+  const wrap = document.createElement("div");
+  wrap.className = "sparkline-wrap";
+
+  const lbl = document.createElement("span");
+  lbl.className = "spark-label";
+  lbl.textContent = "90 checks";
+
+  const bar = document.createElement("div");
+  bar.className = "sparkline";
+
+  // Pad to 90 if fewer checks exist
+  const padded = Array(Math.max(0, 90 - checks.length)).fill(null).concat(checks);
+
+  padded.forEach(c => {
+    const el = document.createElement("div");
+    const st = c ? c.status : "unknown";
+    el.className = `spark-bar ${st}`;
+    // Height reflects latency (capped 4px–24px)
+    if (c && c.latency_ms) {
+      const h = Math.min(24, Math.max(4, Math.round(c.latency_ms / 50)));
+      el.style.height = h + "px";
+    } else {
+      el.style.height = c ? "16px" : "4px";
+    }
+    if (c) {
+      el.addEventListener("mouseenter", ev => showTooltip(ev, c));
+      el.addEventListener("mousemove",  ev => moveTooltip(ev));
+      el.addEventListener("mouseleave", hideTooltip);
+    }
+    bar.appendChild(el);
+  });
+
+  wrap.appendChild(lbl);
+  wrap.appendChild(bar);
+  return wrap;
+}
+
+function showTooltip(ev, check) {
+  tooltip.innerHTML =
+    `<strong>${check.status.toUpperCase()}</strong> &mdash; ${fmtDatetime(check.ts)}` +
+    (check.latency_ms ? `<br>${check.latency_ms}ms` : "");
+  tooltip.style.display = "block";
+  moveTooltip(ev);
+}
+function moveTooltip(ev) {
+  tooltip.style.left = (ev.clientX + 12) + "px";
+  tooltip.style.top  = (ev.clientY - 32) + "px";
+}
+function hideTooltip() { tooltip.style.display = "none"; }
+
+// ── Render servers ─────────────────────────────────────────────
+
+function renderServers(servers) {
+  const list = document.getElementById("server-list");
+  list.innerHTML = "";
+  const visible = activeTag
+    ? servers.filter(s => (s.tags || []).includes(activeTag))
+    : servers;
+
+  visible.forEach(s => {
+    const cls  = s.status || "unknown";
+    const card = document.createElement("div");
+    card.className = "server-card";
+
+    const tagsHtml = [
+      ...(s.tags || []).map(t => `<span class="tag">${t}</span>`),
+      s.transport ? `<span class="tag transport-tag">${s.transport}</span>` : "",
+    ].join("");
+
+    const top = document.createElement("div");
+    top.className = "card-top";
+    top.innerHTML = `
+      <div class="status-pip ${cls}"></div>
+      <div class="server-info">
+        <div class="server-name">${s.name}</div>
+        <div class="server-url"><a href="${s.url}" target="_blank" rel="noopener">${s.url}</a></div>
+        ${tagsHtml ? `<div class="server-tags">${tagsHtml}</div>` : ""}
+      </div>
+      <div class="server-stats">
+        ${s.latency_ms != null ? `<div class="latency" style="${latencyStyle(s.latency_ms)}">${s.latency_ms}ms</div>` : ""}
+        ${s.uptime_90  != null ? `<div class="uptime-pct">${s.uptime_90}% uptime</div>` : ""}
+        ${s.error      ? `<div class="error-txt">${s.error}</div>` : ""}
+        ${s.note       ? `<div class="note-txt">${s.note}</div>`   : ""}
+      </div>
+    `;
+
+    card.appendChild(top);
+
+    if (s.recent_checks && s.recent_checks.length) {
+      const sparkRow = document.createElement("div");
+      sparkRow.className = "sparkline-row";
+      sparkRow.appendChild(buildSparkline(s.recent_checks));
+      card.appendChild(sparkRow);
+    }
+
+    list.appendChild(card);
+  });
+}
+
+// ── Render incidents ───────────────────────────────────────────
+
+function renderIncidents(incidentsData, serverNames) {
+  const section = document.getElementById("incidents-section");
+  const list    = document.getElementById("incident-list");
+  list.innerHTML = "";
+
+  // Flatten all incidents, sort newest first
+  const all = [];
+  for (const name of serverNames) {
+    (incidentsData[name] || []).forEach(inc => {
+      all.push({ name, ...inc });
+    });
+  }
+  all.sort((a, b) => (b.started_at > a.started_at ? 1 : -1));
+
+  if (!all.length) {
+    list.innerHTML = `<p class="no-incidents">No incidents recorded yet.</p>`;
+    section.style.display = "block";
+    return;
+  }
+
+  section.style.display = "block";
+
+  all.slice(0, 30).forEach(inc => {
+    const ongoing  = !inc.resolved_at;
+    const item     = document.createElement("div");
+    item.className = "incident-item" + (ongoing ? "" : " resolved");
+
+    const duration = inc.duration_min != null
+      ? ` &mdash; lasted ${fmtDuration(inc.duration_min)}`
+      : "";
+
+    item.innerHTML = `
+      <div>
+        <div class="incident-server">${inc.name}</div>
+        <div class="incident-time">
+          Started ${fmtDatetime(inc.started_at)}
+          ${inc.resolved_at ? `&rarr; ${fmtDatetime(inc.resolved_at)}${duration}` : ""}
+        </div>
+      </div>
+      <div class="incident-badge ${ongoing ? "ongoing" : "resolved"}">
+        ${ongoing ? "Ongoing" : "Resolved"}
+      </div>
+    `;
+    list.appendChild(item);
+  });
+}
+
+// ── Main load ─────────────────────────────────────────────────
+
+async function load() {
+  try {
+    const [statusRes, incRes] = await Promise.all([
+      fetch(STATUS_URL    + "?t=" + Date.now()),
+      fetch(INCIDENTS_URL + "?t=" + Date.now()),
+    ]);
+
+    if (!statusRes.ok) throw new Error("status " + statusRes.status);
+    const data      = await statusRes.json();
+    const incidents = incRes.ok ? await incRes.json() : {};
+
+    allServers = data.servers || [];
+
+    // Overall badge
+    const downCount = allServers.filter(s => s.status === "down").length;
+    const badge = document.getElementById("overall-badge");
+    badge.style.display = "flex";
+    if (downCount === 0 && allServers.length > 0) {
+      badge.className = "overall all-up";
+      badge.innerHTML = `<span style="width:8px;height:8px;border-radius:50%;background:currentColor;animation:blink 2s infinite"></span>&nbsp;All systems operational`;
+    } else if (downCount > 0) {
+      badge.className = "overall some-down";
+      badge.innerHTML = `<span style="width:8px;height:8px;border-radius:50%;background:currentColor"></span>&nbsp;${downCount} server${downCount > 1 ? "s" : ""} down`;
+    } else {
+      badge.className = "overall degraded";
+      badge.innerHTML = `<span style="width:8px;height:8px;border-radius:50%;background:currentColor"></span>&nbsp;Degraded`;
+    }
+
+    document.getElementById("meta-line").textContent =
+      `Last checked ${timeAgo(data.generated_at)} · ${fmtDatetime(data.generated_at)}`;
+
+    setupTagFilter(allServers);
+
+    document.getElementById("loading").style.display = "none";
+    const serverList = document.getElementById("server-list");
+    serverList.style.display = "flex";
+    renderServers(allServers);
+
+    renderIncidents(incidents, allServers.map(s => s.name));
+
+  } catch (err) {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("error-msg").style.display = "block";
+    console.error(err);
+  }
+}
+
+load();
+setInterval(load, 60_000);
+</script>
+</body>
+</html>

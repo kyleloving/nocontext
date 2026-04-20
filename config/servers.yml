@@ -1,0 +1,38 @@
+servers:
+  # Cloudflare MCP Servers
+  - name: "Cloudflare Workers Bindings"
+    url: "https://bindings.mcp.cloudflare.com"
+    transport: http
+    tags: [cloudflare, official]
+
+  - name: "Cloudflare Browser Rendering"
+    url: "https://browser-rendering.mcp.cloudflare.com"
+    transport: http
+    tags: [cloudflare, official]
+
+  - name: "Cloudflare Docs"
+    url: "https://docs.mcp.cloudflare.com"
+    transport: http
+    tags: [cloudflare, official]
+
+  - name: "Cloudflare Radar"
+    url: "https://radar.mcp.cloudflare.com"
+    transport: http
+    tags: [cloudflare, official]
+
+  # Community / Other
+  - name: "Zapier MCP"
+    url: "https://mcp.zapier.com"
+    transport: http
+    tags: [zapier, integrations]
+
+  - name: "Browserbase"
+    url: "https://api.browserbase.com/mcp"
+    transport: http
+    tags: [browser, automation]
+
+  # Add your own servers below:
+  # - name: "My MCP Server"
+  #   url: "https://my-mcp-server.example.com"
+  #   transport: http
+  #   tags: [custom]
