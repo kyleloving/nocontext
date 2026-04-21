@@ -603,7 +603,13 @@ function renderStats(servers, incidents) {
   const avgUp   = total
     ? Math.round(servers.reduce((a, s) => a + (s.uptime_90 ?? 0), 0) / total * 10) / 10
     : 0;
-  const openInc = Object.values(incidents).flat().filter(i => !i.resolved_at).length;
+  // Only count incidents for servers still present in the config — old entries
+  // from renamed/removed servers are ignored.
+  const currentNames = new Set(servers.map(s => s.name));
+  const openInc = Object.entries(incidents)
+    .filter(([name]) => currentNames.has(name))
+    .flatMap(([, list]) => list)
+    .filter(i => !i.resolved_at).length;
 
   document.getElementById("stat-up").textContent       = `${upCount} / ${total}`;
   document.getElementById("stat-uptime").textContent   = `${avgUp}%`;

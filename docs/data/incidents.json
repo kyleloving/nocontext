@@ -1,25 +1,4 @@
 {
-  "Cloudflare Workers Bindings": [
-    {
-      "started_at": "2026-04-21T00:07:09Z",
-      "resolved_at": "2026-04-21T00:17:08Z",
-      "duration_min": 10
-    }
-  ],
-  "Cloudflare Browser Rendering": [
-    {
-      "started_at": "2026-04-21T00:07:09Z",
-      "resolved_at": null,
-      "duration_min": null
-    }
-  ],
-  "Cloudflare Docs": [
-    {
-      "started_at": "2026-04-21T00:07:09Z",
-      "resolved_at": null,
-      "duration_min": null
-    }
-  ],
   "Cloudflare Radar": [
     {
       "started_at": "2026-04-21T00:07:09Z",
@@ -27,32 +6,7 @@
       "duration_min": 10
     }
   ],
-  "Zapier MCP": [
-    {
-      "started_at": "2026-04-21T00:07:09Z",
-      "resolved_at": null,
-      "duration_min": null
-    }
-  ],
-  "Browserbase": [
-    {
-      "started_at": "2026-04-21T00:07:09Z",
-      "resolved_at": "2026-04-21T00:17:08Z",
-      "duration_min": 10
-    }
-  ],
-  "Cloudflare MCP": [],
-  "Cloudflare AI Gateway": [],
-  "Cloudflare Browser": [],
-  "GitHub Copilot MCP": [
-    {
-      "started_at": "2026-04-21T00:17:08Z",
-      "resolved_at": null,
-      "duration_min": null
-    }
-  ],
   "Microsoft Learn": [],
-  "OpenAI Developer Docs": [],
   "GitHub Copilot": [],
   "Sentry": [
     {
