@@ -120,6 +120,13 @@ def _check_legacy_sse(url: str) -> dict:
                         headers={"Accept": "text/event-stream"},
                         timeout=TIMEOUT, stream=True)
 
+    if resp.status_code in (401, 403):
+        return {"ok": True, "note": f"HTTP {resp.status_code} (auth required)"}
+
+    if resp.status_code == 302 or "text/html" in resp.headers.get("content-type", ""):
+        # OAuth redirect — server is alive, just needs credentials
+        return {"ok": True, "note": "OAuth redirect (auth required)"}
+
     if "text/event-stream" not in resp.headers.get("content-type", ""):
         return {"ok": False, "error": "GET /sse did not return SSE stream"}
 
