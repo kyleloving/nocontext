@@ -25,10 +25,10 @@
   },
   "Cloudflare Radar": {
     "2026-04-21": {
-      "up": 13,
+      "up": 14,
       "degraded": 0,
       "down": 1,
-      "total": 14
+      "total": 15
     }
   },
   "Zapier MCP": {
@@ -81,10 +81,10 @@
   },
   "Microsoft Learn": {
     "2026-04-21": {
-      "up": 13,
+      "up": 14,
       "degraded": 0,
       "down": 0,
-      "total": 13
+      "total": 14
     }
   },
   "OpenAI Developer Docs": {
@@ -97,162 +97,162 @@
   },
   "GitHub Copilot": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "Sentry": {
     "2026-04-21": {
       "up": 0,
       "degraded": 0,
-      "down": 12,
-      "total": 12
+      "down": 13,
+      "total": 13
     }
   },
   "Linear": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Figma": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "Semgrep": {
     "2026-04-21": {
       "up": 0,
       "degraded": 0,
-      "down": 12,
-      "total": 12
+      "down": 13,
+      "total": 13
     }
   },
   "DeepWiki": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "Atlassian": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Asana": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Notion": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "Intercom": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Cloudflare": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "Neon": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Supabase": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "PayPal": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Square": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Webflow": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "Wix": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   },
   "CoinGecko": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "Ahrefs": {
     "2026-04-21": {
-      "up": 12,
+      "up": 13,
       "degraded": 0,
       "down": 0,
-      "total": 12
+      "total": 13
     }
   },
   "Globalping": {
     "2026-04-21": {
-      "up": 11,
+      "up": 12,
       "degraded": 0,
       "down": 1,
-      "total": 12
+      "total": 13
     }
   }
 }
