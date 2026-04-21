@@ -52,5 +52,97 @@
     }
   ],
   "Microsoft Learn": [],
-  "OpenAI Developer Docs": []
+  "OpenAI Developer Docs": [],
+  "GitHub Copilot": [],
+  "Sentry": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Linear": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Figma": [],
+  "Semgrep": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "DeepWiki": [],
+  "Atlassian": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Asana": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Notion": [],
+  "Intercom": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Cloudflare": [],
+  "Neon": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Supabase": [],
+  "PayPal": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Square": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Webflow": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "Wix": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
+  "CoinGecko": [],
+  "Ahrefs": [],
+  "Globalping": [
+    {
+      "started_at": "2026-04-21T00:37:10Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ]
 }
