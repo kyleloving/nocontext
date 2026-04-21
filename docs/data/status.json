@@ -1,0 +1,137 @@
+{
+  "generated_at": "2026-04-21T00:07:09Z",
+  "servers": [
+    {
+      "name": "Cloudflare Workers Bindings",
+      "url": "https://bindings.mcp.cloudflare.com",
+      "tags": [
+        "cloudflare",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 62,
+      "transport": null,
+      "error": "non-JSON response (HTTP 404)",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:07:09Z",
+          "status": "down",
+          "latency_ms": 62
+        }
+      ],
+      "checked_at": "2026-04-21T00:07:09Z"
+    },
+    {
+      "name": "Cloudflare Browser Rendering",
+      "url": "https://browser-rendering.mcp.cloudflare.com",
+      "tags": [
+        "cloudflare",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 80,
+      "transport": null,
+      "error": "connection refused",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:07:09Z",
+          "status": "down",
+          "latency_ms": 80
+        }
+      ],
+      "checked_at": "2026-04-21T00:07:09Z"
+    },
+    {
+      "name": "Cloudflare Docs",
+      "url": "https://docs.mcp.cloudflare.com",
+      "tags": [
+        "cloudflare",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 51,
+      "transport": null,
+      "error": "non-JSON response (HTTP 404)",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:07:09Z",
+          "status": "down",
+          "latency_ms": 51
+        }
+      ],
+      "checked_at": "2026-04-21T00:07:09Z"
+    },
+    {
+      "name": "Cloudflare Radar",
+      "url": "https://radar.mcp.cloudflare.com",
+      "tags": [
+        "cloudflare",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 58,
+      "transport": null,
+      "error": "non-JSON response (HTTP 404)",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:07:09Z",
+          "status": "down",
+          "latency_ms": 58
+        }
+      ],
+      "checked_at": "2026-04-21T00:07:09Z"
+    },
+    {
+      "name": "Zapier MCP",
+      "url": "https://mcp.zapier.com",
+      "tags": [
+        "zapier",
+        "integrations"
+      ],
+      "status": "down",
+      "latency_ms": 368,
+      "transport": null,
+      "error": "non-JSON response (HTTP 200)",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:07:09Z",
+          "status": "down",
+          "latency_ms": 368
+        }
+      ],
+      "checked_at": "2026-04-21T00:07:09Z"
+    },
+    {
+      "name": "Browserbase",
+      "url": "https://api.browserbase.com/mcp",
+      "tags": [
+        "browser",
+        "automation"
+      ],
+      "status": "down",
+      "latency_ms": 369,
+      "transport": null,
+      "error": "HTTP 404",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:07:09Z",
+          "status": "down",
+          "latency_ms": 369
+        }
+      ],
+      "checked_at": "2026-04-21T00:07:09Z"
+    }
+  ]
+}

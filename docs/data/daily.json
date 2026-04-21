@@ -1,0 +1,50 @@
+{
+  "Cloudflare Workers Bindings": {
+    "2026-04-21": {
+      "up": 0,
+      "degraded": 0,
+      "down": 1,
+      "total": 1
+    }
+  },
+  "Cloudflare Browser Rendering": {
+    "2026-04-21": {
+      "up": 0,
+      "degraded": 0,
+      "down": 1,
+      "total": 1
+    }
+  },
+  "Cloudflare Docs": {
+    "2026-04-21": {
+      "up": 0,
+      "degraded": 0,
+      "down": 1,
+      "total": 1
+    }
+  },
+  "Cloudflare Radar": {
+    "2026-04-21": {
+      "up": 0,
+      "degraded": 0,
+      "down": 1,
+      "total": 1
+    }
+  },
+  "Zapier MCP": {
+    "2026-04-21": {
+      "up": 0,
+      "degraded": 0,
+      "down": 1,
+      "total": 1
+    }
+  },
+  "Browserbase": {
+    "2026-04-21": {
+      "up": 0,
+      "degraded": 0,
+      "down": 1,
+      "total": 1
+    }
+  }
+}
