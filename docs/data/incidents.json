@@ -64,8 +64,8 @@
   "Linear": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Figma": [],
@@ -80,60 +80,60 @@
   "Atlassian": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Asana": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Notion": [],
   "Intercom": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Cloudflare": [],
   "Neon": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Supabase": [],
   "PayPal": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Square": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Webflow": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "Wix": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ],
   "CoinGecko": [],
@@ -141,8 +141,8 @@
   "Globalping": [
     {
       "started_at": "2026-04-21T00:37:10Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-04-21T00:44:27Z",
+      "duration_min": 7
     }
   ]
 }
