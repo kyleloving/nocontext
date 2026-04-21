@@ -1,0 +1,60 @@
+name: Add MCP Server
+description: Submit a remote MCP server to be monitored on NoContext.
+title: "[Add Server] "
+labels: [add-server]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Server name
+      description: The display name shown on the status page.
+      placeholder: "e.g. Acme MCP"
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: Endpoint URL
+      description: The full URL of the MCP endpoint.
+      placeholder: "e.g. https://mcp.acme.com/mcp"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Transport
+      description: How the server communicates. If unsure, pick Auto.
+      options:
+        - Auto (detect automatically)
+        - HTTP (Streamable HTTP — POST to endpoint)
+        - SSE (legacy SSE — GET /sse then POST /message)
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated tags for filtering (e.g. dev-tools, cloud, payments).
+      placeholder: "e.g. dev-tools, official"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else we should know — auth requirements, quirks, related links.
+      placeholder: "Requires OAuth. Official server maintained by Acme Corp."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The endpoint is publicly reachable over HTTPS (no VPN or private credentials needed to reach it).
+          required: true
+        - label: This is a real MCP server, not a generic HTTP endpoint.
+          required: true
+        - label: I have verified the URL is correct.
+          required: true

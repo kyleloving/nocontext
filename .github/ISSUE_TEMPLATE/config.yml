@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Add a server via PR
+    url: https://github.com/kyleloving/nocontext/edit/main/config/servers.yml
+    about: Comfortable with YAML? Edit the server list directly and open a PR.

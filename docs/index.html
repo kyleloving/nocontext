@@ -360,7 +360,44 @@
     .incident-badge.ongoing  { color: var(--down);  border-color: #b91c1c60; background: #450a0a30; }
     .incident-badge.resolved { color: var(--muted2); border-color: var(--border); background: transparent; }
 
+    .all-clear {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--up);
+      padding: 0.75rem 1rem;
+      background: #052e1620;
+      border: 1px solid #16a34a40;
+      border-radius: var(--radius);
+    }
+
     .no-incidents { font-size: 0.85rem; color: var(--muted); }
+
+    details.past-incidents { margin-top: 1rem; }
+    details.past-incidents summary {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      user-select: none;
+    }
+    details.past-incidents summary::-webkit-details-marker { display: none; }
+    details.past-incidents summary::before {
+      content: "▸";
+      font-size: 0.65rem;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    details.past-incidents[open] summary::before { transform: rotate(90deg); }
+    details.past-incidents .incident-list { margin-top: 0.75rem; }
 
     /* ── Loading / error ────────────────────────────────────────── */
     #loading, #error-msg { text-align: center; padding: 5rem; color: var(--muted); }
@@ -438,8 +475,12 @@
 
   <!-- Incidents -->
   <div id="incidents-section" style="display:none">
-    <div class="section-header"><h2>Incident History</h2></div>
-    <div class="incident-list" id="incident-list"></div>
+    <div class="section-header"><h2>Current Outages</h2></div>
+    <div id="ongoing-list"></div>
+    <details class="past-incidents" id="past-incidents" style="display:none">
+      <summary>Past incidents</summary>
+      <div class="incident-list" id="resolved-list"></div>
+    </details>
   </div>
 
   <footer>
@@ -636,10 +677,34 @@ function renderServers(servers) {
 
 // ── Render incidents ──────────────────────────────────────────────
 
+function makeIncidentItem(inc) {
+  const ongoing  = !inc.resolved_at;
+  const item     = document.createElement("div");
+  item.className = `incident-item ${ongoing ? "ongoing" : "resolved"}`;
+  const duration = inc.duration_min != null ? ` &mdash; lasted ${fmtDuration(inc.duration_min)}` : "";
+  item.innerHTML = `
+    <div>
+      <div class="incident-server">${inc.name}</div>
+      <div class="incident-time">
+        Started ${fmtDatetime(inc.started_at)}
+        ${inc.resolved_at ? `&rarr; ${fmtDatetime(inc.resolved_at)}${duration}` : ""}
+      </div>
+    </div>
+    <div class="incident-badge ${ongoing ? "ongoing" : "resolved"}">
+      ${ongoing ? "Ongoing" : "Resolved"}
+    </div>
+  `;
+  return item;
+}
+
 function renderIncidents(incidentsData, serverNames) {
-  const section = document.getElementById("incidents-section");
-  const list    = document.getElementById("incident-list");
-  list.innerHTML = "";
+  const section     = document.getElementById("incidents-section");
+  const ongoingEl   = document.getElementById("ongoing-list");
+  const resolvedEl  = document.getElementById("resolved-list");
+  const pastDetails = document.getElementById("past-incidents");
+
+  ongoingEl.innerHTML  = "";
+  resolvedEl.innerHTML = "";
 
   const all = [];
   for (const name of serverNames) {
@@ -647,36 +712,29 @@ function renderIncidents(incidentsData, serverNames) {
   }
   all.sort((a, b) => (b.started_at > a.started_at ? 1 : -1));
 
+  const ongoing  = all.filter(i => !i.resolved_at);
+  const resolved = all.filter(i =>  i.resolved_at);
+
   section.style.display = "block";
 
-  if (!all.length) {
-    list.innerHTML = `<p class="no-incidents">No incidents recorded yet.</p>`;
-    return;
+  if (ongoing.length === 0) {
+    ongoingEl.innerHTML = `
+      <div class="all-clear">
+        <span>✓</span> No current outages
+      </div>`;
+  } else {
+    const list = document.createElement("div");
+    list.className = "incident-list";
+    ongoing.forEach(inc => list.appendChild(makeIncidentItem(inc)));
+    ongoingEl.appendChild(list);
   }
 
-  all.slice(0, 30).forEach(inc => {
-    const ongoing = !inc.resolved_at;
-    const item    = document.createElement("div");
-    item.className = `incident-item ${ongoing ? "ongoing" : "resolved"}`;
-
-    const duration = inc.duration_min != null
-      ? ` &mdash; lasted ${fmtDuration(inc.duration_min)}`
-      : "";
-
-    item.innerHTML = `
-      <div>
-        <div class="incident-server">${inc.name}</div>
-        <div class="incident-time">
-          Started ${fmtDatetime(inc.started_at)}
-          ${inc.resolved_at ? `&rarr; ${fmtDatetime(inc.resolved_at)}${duration}` : ""}
-        </div>
-      </div>
-      <div class="incident-badge ${ongoing ? "ongoing" : "resolved"}">
-        ${ongoing ? "Ongoing" : "Resolved"}
-      </div>
-    `;
-    list.appendChild(item);
-  });
+  if (resolved.length > 0) {
+    pastDetails.style.display = "block";
+    resolved.slice(0, 20).forEach(inc => resolvedEl.appendChild(makeIncidentItem(inc)));
+  } else {
+    pastDetails.style.display = "none";
+  }
 }
 
 // ── Main load ─────────────────────────────────────────────────────

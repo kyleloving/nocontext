@@ -2,7 +2,7 @@
 
 > Uptime monitoring for public MCP servers — because when your server is down, your AI has no context.
 
-**[View live status page →](https://loving-kyle.github.io/nocontext/)**
+**[View live status page →](https://kyleloving.github.io/nocontext/)**
 
 ---
 
