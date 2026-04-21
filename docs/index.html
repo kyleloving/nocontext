@@ -154,6 +154,34 @@
     .tag-btn:hover  { border-color: var(--accent); color: var(--accent); }
     .tag-btn.active { border-color: var(--accent); color: var(--accent); background: #818cf810; }
 
+    /* ── Search ─────────────────────────────────────────────────── */
+    .search-wrap {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+    #search {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.85rem;
+      padding: 0.6rem 0.85rem 0.6rem 2.4rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    #search::placeholder { color: var(--muted); }
+    #search:focus { border-color: var(--accent); }
+
     /* ── Server cards ───────────────────────────────────────────── */
     .server-list { display: flex; flex-direction: column; gap: 0.6rem; }
 
@@ -397,6 +425,11 @@
     <p class="meta" id="meta-line">Loading&hellip;</p>
   </div>
 
+  <div class="search-wrap">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="search" type="search" placeholder="Search servers…" autocomplete="off" />
+  </div>
+
   <div class="tag-filter" id="tag-filter"></div>
 
   <div id="loading">Fetching status&hellip;</div>
@@ -469,8 +502,14 @@ function renderStats(servers, incidents) {
 
 // ── Tag filter ────────────────────────────────────────────────────
 
-let activeTag  = null;
-let allServers = [];
+let activeTag    = null;
+let searchQuery  = "";
+let allServers   = [];
+
+document.getElementById("search").addEventListener("input", e => {
+  searchQuery = e.target.value.trim().toLowerCase();
+  renderServers(allServers);
+});
 
 function setupTagFilter(servers) {
   const tags = [...new Set(servers.flatMap(s => s.tags || []))].sort();
@@ -549,9 +588,11 @@ function hideTooltip() { tooltip.style.display = "none"; }
 function renderServers(servers) {
   const list = document.getElementById("server-list");
   list.innerHTML = "";
-  const visible = activeTag
-    ? servers.filter(s => (s.tags || []).includes(activeTag))
-    : servers;
+  const visible = servers.filter(s => {
+    if (activeTag && !(s.tags || []).includes(activeTag)) return false;
+    if (searchQuery && !s.name.toLowerCase().includes(searchQuery) && !s.url.toLowerCase().includes(searchQuery)) return false;
+    return true;
+  });
 
   visible.forEach(s => {
     const cls  = s.status || "unknown";

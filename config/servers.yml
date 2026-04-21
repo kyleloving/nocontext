@@ -1,55 +1,123 @@
 servers:
-  # ── Cloudflare (auth required — 401 treated as "up") ─────────────────────
-  - name: "Cloudflare MCP"
+  # ── Dev Tools ─────────────────────────────────────────────────────────────
+  - name: "GitHub Copilot"
+    url: "https://api.githubcopilot.com/mcp/"
+    transport: http
+    tags: [dev-tools, official]
+
+  - name: "Sentry"
+    url: "https://mcp.sentry.dev/sse"
+    transport: sse
+    tags: [dev-tools, official]
+
+  - name: "Linear"
+    url: "https://mcp.linear.app/sse"
+    transport: sse
+    tags: [dev-tools, official]
+
+  - name: "Figma"
+    url: "https://mcp.figma.com/mcp"
+    transport: http
+    tags: [dev-tools, official]
+
+  - name: "Semgrep"
+    url: "https://mcp.semgrep.ai/sse"
+    transport: sse
+    tags: [dev-tools, open]
+
+  - name: "DeepWiki"
+    url: "https://mcp.deepwiki.com/mcp"
+    transport: http
+    tags: [dev-tools, open]
+
+  - name: "Atlassian"
+    url: "https://mcp.atlassian.com/v1/sse"
+    transport: sse
+    tags: [dev-tools, official]
+
+  - name: "Asana"
+    url: "https://mcp.asana.com/sse"
+    transport: sse
+    tags: [dev-tools, official]
+
+  # ── Productivity ──────────────────────────────────────────────────────────
+  - name: "Notion"
+    url: "https://mcp.notion.com/mcp"
+    transport: http
+    tags: [productivity, official]
+
+  - name: "Intercom"
+    url: "https://mcp.intercom.com/sse"
+    transport: sse
+    tags: [productivity, official]
+
+  # ── Cloud & Infra ─────────────────────────────────────────────────────────
+  - name: "Cloudflare"
     url: "https://mcp.cloudflare.com/mcp"
-    transport: auto
-    tags: [cloudflare, official]
+    transport: http
+    tags: [cloud, official]
 
   - name: "Cloudflare Radar"
     url: "https://radar.mcp.cloudflare.com/mcp"
-    transport: auto
-    tags: [cloudflare, official]
+    transport: http
+    tags: [cloud, official]
 
-  - name: "Cloudflare Workers Bindings"
-    url: "https://bindings.mcp.cloudflare.com/mcp"
-    transport: auto
-    tags: [cloudflare, official]
+  - name: "Neon"
+    url: "https://mcp.neon.tech/sse"
+    transport: sse
+    tags: [cloud, official]
 
-  - name: "Cloudflare AI Gateway"
-    url: "https://ai-gateway.mcp.cloudflare.com/mcp"
-    transport: auto
-    tags: [cloudflare, official, ai]
+  - name: "Supabase"
+    url: "https://mcp.supabase.com/mcp"
+    transport: http
+    tags: [cloud, official]
 
-  - name: "Cloudflare Browser"
-    url: "https://browser.mcp.cloudflare.com/mcp"
-    transport: auto
-    tags: [cloudflare, official, browser]
+  # ── Payments ──────────────────────────────────────────────────────────────
+  - name: "PayPal"
+    url: "https://mcp.paypal.com/sse"
+    transport: sse
+    tags: [payments, official]
 
-  # ── GitHub ────────────────────────────────────────────────────────────────
-  - name: "GitHub Copilot MCP"
-    url: "https://api.githubcopilot.com/mcp/"
-    transport: auto
-    tags: [github, official]
+  - name: "Square"
+    url: "https://mcp.squareup.com/sse"
+    transport: sse
+    tags: [payments, official]
+
+  # ── Web & Design ──────────────────────────────────────────────────────────
+  - name: "Webflow"
+    url: "https://mcp.webflow.com/sse"
+    transport: sse
+    tags: [web, official]
+
+  - name: "Wix"
+    url: "https://mcp.wix.com/sse"
+    transport: sse
+    tags: [web, official]
+
+  # ── Data & Analytics ──────────────────────────────────────────────────────
+  - name: "CoinGecko"
+    url: "https://mcp.api.coingecko.com/sse"
+    transport: sse
+    tags: [data, open]
+
+  - name: "Ahrefs"
+    url: "https://api.ahrefs.com/mcp/mcp"
+    transport: http
+    tags: [data, official]
+
+  # ── Network ───────────────────────────────────────────────────────────────
+  - name: "Globalping"
+    url: "https://mcp.globalping.dev/sse"
+    transport: sse
+    tags: [network, open]
 
   # ── Microsoft ─────────────────────────────────────────────────────────────
   - name: "Microsoft Learn"
     url: "https://learn.microsoft.com/api/mcp"
-    transport: auto
-    tags: [microsoft, docs]
+    transport: http
+    tags: [cloud, official]
 
-  # ── OpenAI ────────────────────────────────────────────────────────────────
-  - name: "OpenAI Developer Docs"
-    url: "https://developers.openai.com/mcp"
-    transport: auto
-    tags: [openai, docs]
-
-  # ── Browserbase ───────────────────────────────────────────────────────────
-  - name: "Browserbase"
-    url: "https://mcp.browserbase.com/mcp"
-    transport: auto
-    tags: [browser, automation]
-
-  # ── Add your own servers below ────────────────────────────────────────────
+  # ── Add your own ──────────────────────────────────────────────────────────
   # - name: "My MCP Server"
   #   url: "https://my-mcp-server.example.com/mcp"
   #   transport: auto   # auto | http | sse
