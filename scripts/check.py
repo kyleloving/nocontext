@@ -355,6 +355,15 @@ def main():
     daily     = load_json(DAILY_FILE,     {})
     tools_db  = load_json(TOOLS_FILE,     {})
 
+    # Prune entries for servers no longer in the config so old data doesn't
+    # leak into stats or incident counts.
+    current_names = {s["name"] for s in servers}
+    for store in (history, incidents, daily, tools_db):
+        for name in list(store.keys()):
+            if name not in current_names:
+                print(f"  Pruning orphaned data for '{name}'")
+                del store[name]
+
     results = []
     any_down = False
 
