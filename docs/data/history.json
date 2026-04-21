@@ -5,6 +5,13 @@
       "status": "down",
       "latency_ms": 62,
       "error": "non-JSON response (HTTP 404)"
+    },
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 53,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Cloudflare Browser Rendering": [
@@ -29,6 +36,13 @@
       "status": "down",
       "latency_ms": 58,
       "error": "non-JSON response (HTTP 404)"
+    },
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 54,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Zapier MCP": [
@@ -45,6 +59,66 @@
       "status": "down",
       "latency_ms": 369,
       "error": "HTTP 404"
+    },
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 460,
+      "note": null,
+      "transport": "streamable-http"
+    }
+  ],
+  "Cloudflare MCP": [
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 65,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "Cloudflare AI Gateway": [
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 61,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "Cloudflare Browser": [
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 62,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "GitHub Copilot MCP": [
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "down",
+      "latency_ms": 91,
+      "error": "non-JSON response (HTTP 401)"
+    }
+  ],
+  "Microsoft Learn": [
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 120,
+      "note": null,
+      "transport": "streamable-http"
+    }
+  ],
+  "OpenAI Developer Docs": [
+    {
+      "ts": "2026-04-21T00:17:08Z",
+      "status": "up",
+      "latency_ms": 351,
+      "note": null,
+      "transport": "streamable-http"
     }
   ]
 }
