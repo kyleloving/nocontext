@@ -21,10 +21,11 @@ import yaml
 ROOT = Path(__file__).parent.parent
 CONFIG = ROOT / "config" / "servers.yml"
 DATA_DIR = ROOT / "docs" / "data"
-STATUS_FILE   = DATA_DIR / "status.json"
-HISTORY_FILE  = DATA_DIR / "history.json"
+STATUS_FILE    = DATA_DIR / "status.json"
+HISTORY_FILE   = DATA_DIR / "history.json"
 INCIDENTS_FILE = DATA_DIR / "incidents.json"
-DAILY_FILE    = DATA_DIR / "daily.json"
+DAILY_FILE     = DATA_DIR / "daily.json"
+TOOLS_FILE     = DATA_DIR / "tools.json"
 
 # ---------------------------------------------------------------------------
 # MCP protocol helpers
@@ -71,6 +72,61 @@ def _parse_sse_stream(resp) -> dict | None:
     return None
 
 
+def _fetch_tools(url: str, session_id: str | None) -> tuple[list | None, str | None]:
+    """
+    After a successful initialize, try to enumerate the server's tools.
+    Returns (tools_list, error_message). Either may be None.
+    Best-effort: never raises, never affects up/down status.
+    """
+    headers = dict(HEADERS_POST)
+    if session_id:
+        headers["Mcp-Session-Id"] = session_id
+
+    # Send the initialized notification — some servers require it before accepting further calls.
+    try:
+        requests.post(
+            url,
+            json={"jsonrpc": "2.0", "method": "notifications/initialized"},
+            headers=headers, timeout=5,
+        )
+    except Exception:
+        pass
+
+    try:
+        resp = requests.post(
+            url,
+            json={"jsonrpc": "2.0", "id": 2, "method": "tools/list"},
+            headers=headers, timeout=TIMEOUT, stream=True,
+        )
+    except Exception as e:
+        return None, f"request failed: {str(e)[:80]}"
+
+    if resp.status_code != 200:
+        return None, f"HTTP {resp.status_code}"
+
+    ct = resp.headers.get("content-type", "")
+    body = None
+    if "text/event-stream" in ct:
+        body = _parse_sse_stream(resp)
+    else:
+        try:
+            body = resp.json()
+        except ValueError:
+            return None, "non-JSON response"
+
+    if not isinstance(body, dict):
+        return None, "empty response"
+    if "error" in body:
+        err = body["error"]
+        msg = err.get("message", "unknown") if isinstance(err, dict) else str(err)
+        return None, f"rpc error: {msg[:80]}"
+    if "result" in body and isinstance(body["result"], dict) and "tools" in body["result"]:
+        tools = body["result"]["tools"]
+        if isinstance(tools, list):
+            return tools, None
+    return None, "no tools field"
+
+
 # ---------------------------------------------------------------------------
 # Transport checkers
 # ---------------------------------------------------------------------------
@@ -80,13 +136,14 @@ def _check_streamable_http(url: str) -> dict:
     resp = requests.post(url, json=MCP_INIT, headers=HEADERS_POST,
                          timeout=TIMEOUT, stream=True)
     ct = resp.headers.get("content-type", "")
+    session_id = resp.headers.get("Mcp-Session-Id") or resp.headers.get("mcp-session-id")
 
     if "text/event-stream" in ct:
         body = _parse_sse_stream(resp)
         if body is None:
             return {"ok": False, "error": "SSE stream contained no data events"}
         if _is_valid_mcp_response(body):
-            return {"ok": True}
+            return {"ok": True, "session_id": session_id, "can_probe_tools": True}
         return {"ok": False, "error": "unexpected SSE payload shape"}
 
     if resp.status_code in (401, 403):
@@ -102,7 +159,7 @@ def _check_streamable_http(url: str) -> dict:
         return {"ok": False, "error": "non-JSON response (HTTP 200)"}
 
     if _is_valid_mcp_response(body):
-        return {"ok": True}
+        return {"ok": True, "session_id": session_id, "can_probe_tools": True}
     return {"ok": False, "error": "unexpected JSON response shape"}
 
 
@@ -176,8 +233,17 @@ def check_server(server: dict) -> dict:
         if transport in ("http", "auto"):
             result = _check_streamable_http(url)
             if result["ok"]:
-                return {"status": "up", "latency_ms": elapsed(),
-                        "note": result.get("note"), "transport": "streamable-http"}
+                out = {"status": "up", "latency_ms": elapsed(),
+                       "note": result.get("note"), "transport": "streamable-http"}
+                # Only probe tools on servers that returned a real MCP response
+                # (skip the auth-required case; we have no credentials to offer).
+                if result.get("can_probe_tools"):
+                    tools, tools_err = _fetch_tools(url, result.get("session_id"))
+                    if tools is not None:
+                        out["tools"] = tools
+                    elif tools_err:
+                        out["tools_error"] = tools_err
+                return out
             # If auto and streamable-http failed with a connectivity-style error,
             # fall through to legacy SSE. If it was a 405 or similar, also try.
             if transport == "auto":
@@ -287,6 +353,7 @@ def main():
     history   = load_json(HISTORY_FILE,   {})
     incidents = load_json(INCIDENTS_FILE, {})
     daily     = load_json(DAILY_FILE,     {})
+    tools_db  = load_json(TOOLS_FILE,     {})
 
     results = []
     any_down = False
@@ -296,9 +363,15 @@ def main():
         print(f"  Checking {name} ...", end=" ", flush=True)
         result = check_server(server)
         status = result["status"]
+
+        # Strip tools off the result before storing in history so raw check
+        # entries stay lightweight. Keep them only in the tools DB.
+        tools = result.pop("tools", None)
+
         print(status, f"({result.get('latency_ms', '?')}ms)",
               f"[{result.get('transport', '?')}]",
-              f"  {result.get('error') or result.get('note') or ''}")
+              f"  {result.get('error') or result.get('note') or ''}",
+              f"  tools={len(tools) if tools is not None else '-'}")
 
         entry = {"ts": now, **result}
         checks = update_history(history, name, entry)
@@ -307,6 +380,11 @@ def main():
 
         if status == "down":
             any_down = True
+
+        # Update tools DB: refresh on successful probe, keep existing on failure.
+        if tools is not None:
+            tools_db[name] = {"fetched_at": now, "tools": tools}
+        tool_count = len(tools_db.get(name, {}).get("tools", [])) if name in tools_db else None
 
         results.append({
             "name": name,
@@ -319,14 +397,16 @@ def main():
             "note": result.get("note"),
             "uptime_90": uptime_pct(checks),
             "recent_checks": [{"ts": c["ts"], "status": c["status"], "latency_ms": c.get("latency_ms")} for c in checks],
+            "tool_count": tool_count,
             "checked_at": now,
         })
 
     status_doc = {"generated_at": now, "servers": results}
-    save_json(STATUS_FILE,   status_doc)
-    save_json(HISTORY_FILE,  history)
+    save_json(STATUS_FILE,    status_doc)
+    save_json(HISTORY_FILE,   history)
     save_json(INCIDENTS_FILE, incidents)
-    save_json(DAILY_FILE,    daily)
+    save_json(DAILY_FILE,     daily)
+    save_json(TOOLS_FILE,     tools_db)
 
     print(f"\nWrote data to {DATA_DIR}/")
     if any_down:

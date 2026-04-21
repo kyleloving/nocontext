@@ -258,6 +258,76 @@
     .error-txt   { font-size: 0.7rem; color: var(--down);   margin-top: 0.2rem; max-width: 150px; }
     .note-txt    { font-size: 0.7rem; color: var(--muted2); margin-top: 0.2rem; }
 
+    /* ── Tools section ──────────────────────────────────────────── */
+    .tool-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: #818cf810;
+      border: 1px solid #818cf830;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      user-select: none;
+      transition: background 0.15s;
+      margin-top: 0.2rem;
+    }
+    .tool-count:hover { background: #818cf820; }
+    .tool-count .chev { font-size: 0.55rem; transition: transform 0.15s; }
+    .tool-count.open .chev { transform: rotate(90deg); }
+
+    .tools-panel {
+      display: none;
+      padding: 0.75rem 1.25rem 1rem;
+      border-top: 1px solid var(--border);
+      background: #10131c;
+    }
+    .tools-panel.open { display: block; }
+
+    .tools-search {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.78rem;
+      padding: 0.4rem 0.65rem;
+      outline: none;
+      margin-bottom: 0.65rem;
+    }
+    .tools-search:focus { border-color: var(--accent); }
+
+    .tool-item {
+      padding: 0.5rem 0.65rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.3rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .tool-item:last-child { margin-bottom: 0; }
+    .tool-name {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .tool-desc {
+      font-size: 0.73rem;
+      color: var(--muted2);
+      margin-top: 0.2rem;
+      line-height: 1.45;
+    }
+    .tools-empty {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.5rem;
+    }
+
     /* ── Sparkline ──────────────────────────────────────────────── */
     .sparkline-row {
       padding: 0 1.25rem 0.85rem;
@@ -435,7 +505,7 @@
     <div class="hero-top">
       <div>
         <div class="wordmark"><span class="no">No</span><span class="ctx">Context</span></div>
-        <div class="tagline">MCP server uptime monitoring — because context should never go missing.</div>
+        <div class="tagline">Uptime, latency, and live tool catalogs for public MCP servers.</div>
       </div>
       <div class="overall" id="overall-badge" style="display:none"></div>
     </div>
@@ -493,6 +563,7 @@
 <script>
 const STATUS_URL    = "./data/status.json";
 const INCIDENTS_URL = "./data/incidents.json";
+const TOOLS_URL     = "./data/tools.json";
 
 const tooltip = document.getElementById("tooltip");
 
@@ -546,6 +617,8 @@ function renderStats(servers, incidents) {
 let activeTag    = null;
 let searchQuery  = "";
 let allServers   = [];
+let toolsDb      = {};
+const openPanels = new Set();  // preserve which cards are expanded across re-renders
 
 document.getElementById("search").addEventListener("input", e => {
   searchQuery = e.target.value.trim().toLowerCase();
@@ -631,8 +704,17 @@ function renderServers(servers) {
   list.innerHTML = "";
   const visible = servers.filter(s => {
     if (activeTag && !(s.tags || []).includes(activeTag)) return false;
-    if (searchQuery && !s.name.toLowerCase().includes(searchQuery) && !s.url.toLowerCase().includes(searchQuery)) return false;
-    return true;
+    if (!searchQuery) return true;
+    if (s.name.toLowerCase().includes(searchQuery)) return true;
+    if (s.url.toLowerCase().includes(searchQuery))  return true;
+    // Also match tool names / descriptions so a search like "browse" finds
+    // servers that expose a tool with that name.
+    const tools = (toolsDb[s.name] || {}).tools || [];
+    if (tools.some(t =>
+      (t.name || "").toLowerCase().includes(searchQuery) ||
+      (t.description || "").toLowerCase().includes(searchQuery)
+    )) return true;
+    return false;
   });
 
   visible.forEach(s => {
@@ -664,6 +746,12 @@ function renderServers(servers) {
 
     card.appendChild(top);
 
+    // Tools panel (only if we have tool data for this server)
+    const entry = toolsDb[s.name];
+    if (entry && Array.isArray(entry.tools) && entry.tools.length) {
+      appendToolsUI(card, s.name, entry.tools);
+    }
+
     if (s.recent_checks && s.recent_checks.length) {
       const sparkRow = document.createElement("div");
       sparkRow.className = "sparkline-row";
@@ -673,6 +761,75 @@ function renderServers(servers) {
 
     list.appendChild(card);
   });
+}
+
+// ── Tools UI ──────────────────────────────────────────────────────
+
+function appendToolsUI(card, serverName, tools) {
+  // Badge goes into the stats column of the card-top
+  const stats = card.querySelector(".server-stats");
+  const badge = document.createElement("div");
+  badge.className = "tool-count" + (openPanels.has(serverName) ? " open" : "");
+  badge.innerHTML = `<span class="chev">▸</span> ${tools.length} tool${tools.length === 1 ? "" : "s"}`;
+  stats.appendChild(badge);
+
+  // Panel below card-top, above sparkline
+  const panel = document.createElement("div");
+  panel.className = "tools-panel" + (openPanels.has(serverName) ? " open" : "");
+
+  const search = document.createElement("input");
+  search.type = "search";
+  search.className = "tools-search";
+  search.placeholder = `Search ${tools.length} tools…`;
+  search.autocomplete = "off";
+
+  const listEl = document.createElement("div");
+  const render = (q = "") => {
+    const query = q.toLowerCase().trim();
+    const filtered = query
+      ? tools.filter(t =>
+          (t.name || "").toLowerCase().includes(query) ||
+          (t.description || "").toLowerCase().includes(query))
+      : tools;
+    listEl.innerHTML = "";
+    if (!filtered.length) {
+      listEl.innerHTML = `<div class="tools-empty">No matching tools.</div>`;
+      return;
+    }
+    filtered.forEach(t => {
+      const item = document.createElement("div");
+      item.className = "tool-item";
+      item.innerHTML = `
+        <div class="tool-name">${t.name || "(unnamed)"}</div>
+        ${t.description ? `<div class="tool-desc">${escapeHtml(t.description)}</div>` : ""}
+      `;
+      listEl.appendChild(item);
+    });
+  };
+
+  search.addEventListener("input", e => render(e.target.value));
+  render();
+
+  panel.appendChild(search);
+  panel.appendChild(listEl);
+
+  badge.addEventListener("click", () => {
+    const opening = !panel.classList.contains("open");
+    panel.classList.toggle("open", opening);
+    badge.classList.toggle("open", opening);
+    if (opening) { openPanels.add(serverName); search.focus(); }
+    else         { openPanels.delete(serverName); }
+  });
+
+  card.appendChild(panel);
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 // ── Render incidents ──────────────────────────────────────────────
@@ -741,14 +898,16 @@ function renderIncidents(incidentsData, serverNames) {
 
 async function load() {
   try {
-    const [statusRes, incRes] = await Promise.all([
+    const [statusRes, incRes, toolsRes] = await Promise.all([
       fetch(STATUS_URL    + "?t=" + Date.now()),
       fetch(INCIDENTS_URL + "?t=" + Date.now()),
+      fetch(TOOLS_URL     + "?t=" + Date.now()),
     ]);
 
     if (!statusRes.ok) throw new Error("status " + statusRes.status);
     const data      = await statusRes.json();
-    const incidents = incRes.ok ? await incRes.json() : {};
+    const incidents = incRes.ok   ? await incRes.json()   : {};
+    toolsDb         = toolsRes.ok ? await toolsRes.json() : {};
 
     allServers = data.servers || [];
 
