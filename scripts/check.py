@@ -89,18 +89,17 @@ def _check_streamable_http(url: str) -> dict:
             return {"ok": True}
         return {"ok": False, "error": "unexpected SSE payload shape"}
 
-    # Plain JSON (or anything else — try to parse)
-    try:
-        body = resp.json()
-    except ValueError:
-        return {"ok": False, "error": f"non-JSON response (HTTP {resp.status_code})"}
-
     if resp.status_code in (401, 403):
         # Auth required but server is alive
         return {"ok": True, "note": f"HTTP {resp.status_code} (auth required)"}
 
     if resp.status_code != 200:
         return {"ok": False, "error": f"HTTP {resp.status_code}"}
+
+    try:
+        body = resp.json()
+    except ValueError:
+        return {"ok": False, "error": "non-JSON response (HTTP 200)"}
 
     if _is_valid_mcp_response(body):
         return {"ok": True}
