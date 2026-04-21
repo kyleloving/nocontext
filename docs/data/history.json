@@ -1,0 +1,50 @@
+{
+  "Cloudflare Workers Bindings": [
+    {
+      "ts": "2026-04-21T00:07:09Z",
+      "status": "down",
+      "latency_ms": 62,
+      "error": "non-JSON response (HTTP 404)"
+    }
+  ],
+  "Cloudflare Browser Rendering": [
+    {
+      "ts": "2026-04-21T00:07:09Z",
+      "status": "down",
+      "latency_ms": 80,
+      "error": "connection refused"
+    }
+  ],
+  "Cloudflare Docs": [
+    {
+      "ts": "2026-04-21T00:07:09Z",
+      "status": "down",
+      "latency_ms": 51,
+      "error": "non-JSON response (HTTP 404)"
+    }
+  ],
+  "Cloudflare Radar": [
+    {
+      "ts": "2026-04-21T00:07:09Z",
+      "status": "down",
+      "latency_ms": 58,
+      "error": "non-JSON response (HTTP 404)"
+    }
+  ],
+  "Zapier MCP": [
+    {
+      "ts": "2026-04-21T00:07:09Z",
+      "status": "down",
+      "latency_ms": 368,
+      "error": "non-JSON response (HTTP 200)"
+    }
+  ],
+  "Browserbase": [
+    {
+      "ts": "2026-04-21T00:07:09Z",
+      "status": "down",
+      "latency_ms": 369,
+      "error": "HTTP 404"
+    }
+  ]
+}
