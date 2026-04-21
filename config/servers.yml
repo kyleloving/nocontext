@@ -1,38 +1,56 @@
 servers:
-  # Cloudflare MCP Servers
-  - name: "Cloudflare Workers Bindings"
-    url: "https://bindings.mcp.cloudflare.com"
-    transport: http
-    tags: [cloudflare, official]
-
-  - name: "Cloudflare Browser Rendering"
-    url: "https://browser-rendering.mcp.cloudflare.com"
-    transport: http
-    tags: [cloudflare, official]
-
-  - name: "Cloudflare Docs"
-    url: "https://docs.mcp.cloudflare.com"
-    transport: http
+  # ── Cloudflare (auth required — 401 treated as "up") ─────────────────────
+  - name: "Cloudflare MCP"
+    url: "https://mcp.cloudflare.com/mcp"
+    transport: auto
     tags: [cloudflare, official]
 
   - name: "Cloudflare Radar"
-    url: "https://radar.mcp.cloudflare.com"
-    transport: http
+    url: "https://radar.mcp.cloudflare.com/mcp"
+    transport: auto
     tags: [cloudflare, official]
 
-  # Community / Other
-  - name: "Zapier MCP"
-    url: "https://mcp.zapier.com"
-    transport: http
-    tags: [zapier, integrations]
+  - name: "Cloudflare Workers Bindings"
+    url: "https://bindings.mcp.cloudflare.com/mcp"
+    transport: auto
+    tags: [cloudflare, official]
 
+  - name: "Cloudflare AI Gateway"
+    url: "https://ai-gateway.mcp.cloudflare.com/mcp"
+    transport: auto
+    tags: [cloudflare, official, ai]
+
+  - name: "Cloudflare Browser"
+    url: "https://browser.mcp.cloudflare.com/mcp"
+    transport: auto
+    tags: [cloudflare, official, browser]
+
+  # ── GitHub ────────────────────────────────────────────────────────────────
+  - name: "GitHub Copilot MCP"
+    url: "https://api.githubcopilot.com/mcp/"
+    transport: auto
+    tags: [github, official]
+
+  # ── Microsoft ─────────────────────────────────────────────────────────────
+  - name: "Microsoft Learn"
+    url: "https://learn.microsoft.com/api/mcp"
+    transport: auto
+    tags: [microsoft, docs]
+
+  # ── OpenAI ────────────────────────────────────────────────────────────────
+  - name: "OpenAI Developer Docs"
+    url: "https://developers.openai.com/mcp"
+    transport: auto
+    tags: [openai, docs]
+
+  # ── Browserbase ───────────────────────────────────────────────────────────
   - name: "Browserbase"
-    url: "https://api.browserbase.com/mcp"
-    transport: http
+    url: "https://mcp.browserbase.com/mcp"
+    transport: auto
     tags: [browser, automation]
 
-  # Add your own servers below:
+  # ── Add your own servers below ────────────────────────────────────────────
   # - name: "My MCP Server"
-  #   url: "https://my-mcp-server.example.com"
-  #   transport: http
+  #   url: "https://my-mcp-server.example.com/mcp"
+  #   transport: auto   # auto | http | sse
   #   tags: [custom]
