@@ -1,41 +1,261 @@
 {
-  "generated_at": "2026-04-21T00:17:08Z",
+  "generated_at": "2026-04-21T00:37:10Z",
   "servers": [
     {
-      "name": "Cloudflare MCP",
-      "url": "https://mcp.cloudflare.com/mcp",
+      "name": "GitHub Copilot",
+      "url": "https://api.githubcopilot.com/mcp/",
       "tags": [
-        "cloudflare",
+        "dev-tools",
         "official"
       ],
       "status": "up",
-      "latency_ms": 65,
+      "latency_ms": 168,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
       "uptime_90": 100.0,
       "recent_checks": [
         {
-          "ts": "2026-04-21T00:17:08Z",
+          "ts": "2026-04-21T00:37:10Z",
           "status": "up",
-          "latency_ms": 65
+          "latency_ms": 168
         }
       ],
-      "checked_at": "2026-04-21T00:17:08Z"
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Sentry",
+      "url": "https://mcp.sentry.dev/sse",
+      "tags": [
+        "dev-tools",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 188,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 188
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Linear",
+      "url": "https://mcp.linear.app/sse",
+      "tags": [
+        "dev-tools",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 112,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 112
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Figma",
+      "url": "https://mcp.figma.com/mcp",
+      "tags": [
+        "dev-tools",
+        "official"
+      ],
+      "status": "up",
+      "latency_ms": 149,
+      "transport": "streamable-http",
+      "error": null,
+      "note": "HTTP 401 (auth required)",
+      "uptime_90": 100.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "up",
+          "latency_ms": 149
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Semgrep",
+      "url": "https://mcp.semgrep.ai/sse",
+      "tags": [
+        "dev-tools",
+        "open"
+      ],
+      "status": "down",
+      "latency_ms": 316,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 316
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "DeepWiki",
+      "url": "https://mcp.deepwiki.com/mcp",
+      "tags": [
+        "dev-tools",
+        "open"
+      ],
+      "status": "up",
+      "latency_ms": 185,
+      "transport": "streamable-http",
+      "error": null,
+      "note": null,
+      "uptime_90": 100.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "up",
+          "latency_ms": 185
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Atlassian",
+      "url": "https://mcp.atlassian.com/v1/sse",
+      "tags": [
+        "dev-tools",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 170,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 170
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Asana",
+      "url": "https://mcp.asana.com/sse",
+      "tags": [
+        "dev-tools",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 210,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 210
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Notion",
+      "url": "https://mcp.notion.com/mcp",
+      "tags": [
+        "productivity",
+        "official"
+      ],
+      "status": "up",
+      "latency_ms": 131,
+      "transport": "streamable-http",
+      "error": null,
+      "note": "HTTP 401 (auth required)",
+      "uptime_90": 100.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "up",
+          "latency_ms": 131
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Intercom",
+      "url": "https://mcp.intercom.com/sse",
+      "tags": [
+        "productivity",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 158,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 158
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Cloudflare",
+      "url": "https://mcp.cloudflare.com/mcp",
+      "tags": [
+        "cloud",
+        "official"
+      ],
+      "status": "up",
+      "latency_ms": 111,
+      "transport": "streamable-http",
+      "error": null,
+      "note": "HTTP 401 (auth required)",
+      "uptime_90": 100.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "up",
+          "latency_ms": 111
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
     },
     {
       "name": "Cloudflare Radar",
       "url": "https://radar.mcp.cloudflare.com/mcp",
       "tags": [
-        "cloudflare",
+        "cloud",
         "official"
       ],
       "status": "up",
-      "latency_ms": 54,
+      "latency_ms": 114,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 50.0,
+      "uptime_90": 66.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:07:09Z",
@@ -46,114 +266,222 @@
           "ts": "2026-04-21T00:17:08Z",
           "status": "up",
           "latency_ms": 54
-        }
-      ],
-      "checked_at": "2026-04-21T00:17:08Z"
-    },
-    {
-      "name": "Cloudflare Workers Bindings",
-      "url": "https://bindings.mcp.cloudflare.com/mcp",
-      "tags": [
-        "cloudflare",
-        "official"
-      ],
-      "status": "up",
-      "latency_ms": 53,
-      "transport": "streamable-http",
-      "error": null,
-      "note": "HTTP 401 (auth required)",
-      "uptime_90": 50.0,
-      "recent_checks": [
-        {
-          "ts": "2026-04-21T00:07:09Z",
-          "status": "down",
-          "latency_ms": 62
         },
         {
-          "ts": "2026-04-21T00:17:08Z",
+          "ts": "2026-04-21T00:37:10Z",
           "status": "up",
-          "latency_ms": 53
+          "latency_ms": 114
         }
       ],
-      "checked_at": "2026-04-21T00:17:08Z"
+      "checked_at": "2026-04-21T00:37:10Z"
     },
     {
-      "name": "Cloudflare AI Gateway",
-      "url": "https://ai-gateway.mcp.cloudflare.com/mcp",
+      "name": "Neon",
+      "url": "https://mcp.neon.tech/sse",
       "tags": [
-        "cloudflare",
-        "official",
-        "ai"
-      ],
-      "status": "up",
-      "latency_ms": 61,
-      "transport": "streamable-http",
-      "error": null,
-      "note": "HTTP 401 (auth required)",
-      "uptime_90": 100.0,
-      "recent_checks": [
-        {
-          "ts": "2026-04-21T00:17:08Z",
-          "status": "up",
-          "latency_ms": 61
-        }
-      ],
-      "checked_at": "2026-04-21T00:17:08Z"
-    },
-    {
-      "name": "Cloudflare Browser",
-      "url": "https://browser.mcp.cloudflare.com/mcp",
-      "tags": [
-        "cloudflare",
-        "official",
-        "browser"
-      ],
-      "status": "up",
-      "latency_ms": 62,
-      "transport": "streamable-http",
-      "error": null,
-      "note": "HTTP 401 (auth required)",
-      "uptime_90": 100.0,
-      "recent_checks": [
-        {
-          "ts": "2026-04-21T00:17:08Z",
-          "status": "up",
-          "latency_ms": 62
-        }
-      ],
-      "checked_at": "2026-04-21T00:17:08Z"
-    },
-    {
-      "name": "GitHub Copilot MCP",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "tags": [
-        "github",
+        "cloud",
         "official"
       ],
       "status": "down",
-      "latency_ms": 91,
+      "latency_ms": 546,
       "transport": null,
-      "error": "non-JSON response (HTTP 401)",
+      "error": "GET /sse did not return SSE stream",
       "note": null,
       "uptime_90": 0.0,
       "recent_checks": [
         {
-          "ts": "2026-04-21T00:17:08Z",
+          "ts": "2026-04-21T00:37:10Z",
           "status": "down",
-          "latency_ms": 91
+          "latency_ms": 546
         }
       ],
-      "checked_at": "2026-04-21T00:17:08Z"
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Supabase",
+      "url": "https://mcp.supabase.com/mcp",
+      "tags": [
+        "cloud",
+        "official"
+      ],
+      "status": "up",
+      "latency_ms": 193,
+      "transport": "streamable-http",
+      "error": null,
+      "note": "HTTP 401 (auth required)",
+      "uptime_90": 100.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "up",
+          "latency_ms": 193
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "PayPal",
+      "url": "https://mcp.paypal.com/sse",
+      "tags": [
+        "payments",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 154,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 154
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Square",
+      "url": "https://mcp.squareup.com/sse",
+      "tags": [
+        "payments",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 289,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 289
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Webflow",
+      "url": "https://mcp.webflow.com/sse",
+      "tags": [
+        "web",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 270,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 270
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Wix",
+      "url": "https://mcp.wix.com/sse",
+      "tags": [
+        "web",
+        "official"
+      ],
+      "status": "down",
+      "latency_ms": 226,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 226
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "CoinGecko",
+      "url": "https://mcp.api.coingecko.com/sse",
+      "tags": [
+        "data",
+        "open"
+      ],
+      "status": "up",
+      "latency_ms": 976,
+      "transport": "legacy-sse",
+      "error": null,
+      "note": "legacy SSE transport",
+      "uptime_90": 100.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "up",
+          "latency_ms": 976
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Ahrefs",
+      "url": "https://api.ahrefs.com/mcp/mcp",
+      "tags": [
+        "data",
+        "official"
+      ],
+      "status": "up",
+      "latency_ms": 241,
+      "transport": "streamable-http",
+      "error": null,
+      "note": "HTTP 401 (auth required)",
+      "uptime_90": 100.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "up",
+          "latency_ms": 241
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
+    },
+    {
+      "name": "Globalping",
+      "url": "https://mcp.globalping.dev/sse",
+      "tags": [
+        "network",
+        "open"
+      ],
+      "status": "down",
+      "latency_ms": 339,
+      "transport": null,
+      "error": "GET /sse did not return SSE stream",
+      "note": null,
+      "uptime_90": 0.0,
+      "recent_checks": [
+        {
+          "ts": "2026-04-21T00:37:10Z",
+          "status": "down",
+          "latency_ms": 339
+        }
+      ],
+      "checked_at": "2026-04-21T00:37:10Z"
     },
     {
       "name": "Microsoft Learn",
       "url": "https://learn.microsoft.com/api/mcp",
       "tags": [
-        "microsoft",
-        "docs"
+        "cloud",
+        "official"
       ],
       "status": "up",
-      "latency_ms": 120,
+      "latency_ms": 154,
       "transport": "streamable-http",
       "error": null,
       "note": null,
@@ -163,58 +491,14 @@
           "ts": "2026-04-21T00:17:08Z",
           "status": "up",
           "latency_ms": 120
-        }
-      ],
-      "checked_at": "2026-04-21T00:17:08Z"
-    },
-    {
-      "name": "OpenAI Developer Docs",
-      "url": "https://developers.openai.com/mcp",
-      "tags": [
-        "openai",
-        "docs"
-      ],
-      "status": "up",
-      "latency_ms": 351,
-      "transport": "streamable-http",
-      "error": null,
-      "note": null,
-      "uptime_90": 100.0,
-      "recent_checks": [
-        {
-          "ts": "2026-04-21T00:17:08Z",
-          "status": "up",
-          "latency_ms": 351
-        }
-      ],
-      "checked_at": "2026-04-21T00:17:08Z"
-    },
-    {
-      "name": "Browserbase",
-      "url": "https://mcp.browserbase.com/mcp",
-      "tags": [
-        "browser",
-        "automation"
-      ],
-      "status": "up",
-      "latency_ms": 460,
-      "transport": "streamable-http",
-      "error": null,
-      "note": null,
-      "uptime_90": 50.0,
-      "recent_checks": [
-        {
-          "ts": "2026-04-21T00:07:09Z",
-          "status": "down",
-          "latency_ms": 369
         },
         {
-          "ts": "2026-04-21T00:17:08Z",
+          "ts": "2026-04-21T00:37:10Z",
           "status": "up",
-          "latency_ms": 460
+          "latency_ms": 154
         }
       ],
-      "checked_at": "2026-04-21T00:17:08Z"
+      "checked_at": "2026-04-21T00:37:10Z"
     }
   ]
 }

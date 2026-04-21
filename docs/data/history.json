@@ -43,6 +43,13 @@
       "latency_ms": 54,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 114,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Zapier MCP": [
@@ -110,6 +117,13 @@
       "latency_ms": 120,
       "note": null,
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 154,
+      "note": null,
+      "transport": "streamable-http"
     }
   ],
   "OpenAI Developer Docs": [
@@ -119,6 +133,174 @@
       "latency_ms": 351,
       "note": null,
       "transport": "streamable-http"
+    }
+  ],
+  "GitHub Copilot": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 168,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "Sentry": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 188,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Linear": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 112,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Figma": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 149,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "Semgrep": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 316,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "DeepWiki": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 185,
+      "note": null,
+      "transport": "streamable-http"
+    }
+  ],
+  "Atlassian": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 170,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Asana": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 210,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Notion": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 131,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "Intercom": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 158,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Cloudflare": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 111,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "Neon": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 546,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Supabase": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 193,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "PayPal": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 154,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Square": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 289,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Webflow": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 270,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "Wix": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 226,
+      "error": "GET /sse did not return SSE stream"
+    }
+  ],
+  "CoinGecko": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 976,
+      "note": "legacy SSE transport",
+      "transport": "legacy-sse"
+    }
+  ],
+  "Ahrefs": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "up",
+      "latency_ms": 241,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
+    }
+  ],
+  "Globalping": [
+    {
+      "ts": "2026-04-21T00:37:10Z",
+      "status": "down",
+      "latency_ms": 339,
+      "error": "GET /sse did not return SSE stream"
     }
   ]
 }
