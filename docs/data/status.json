@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-22T12:57:15Z",
+  "generated_at": "2026-04-22T14:43:56Z",
   "servers": [
     {
       "name": "GitHub Copilot",
@@ -9,7 +9,7 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 88,
+      "latency_ms": 80,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
@@ -159,10 +159,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 88
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 80
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Sentry",
@@ -172,7 +177,7 @@
         "official"
       ],
       "status": "down",
-      "latency_ms": 276,
+      "latency_ms": 167,
       "transport": null,
       "error": "GET /sse did not return SSE stream",
       "note": null,
@@ -322,10 +327,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "down",
           "latency_ms": 276
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "down",
+          "latency_ms": 167
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Linear",
@@ -335,11 +345,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 71,
+      "latency_ms": 84,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -485,10 +495,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 71
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 84
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Figma",
@@ -498,7 +513,7 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 140,
+      "latency_ms": 157,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
@@ -648,10 +663,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 140
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 157
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Semgrep",
@@ -661,7 +681,7 @@
         "open"
       ],
       "status": "down",
-      "latency_ms": 223,
+      "latency_ms": 306,
       "transport": null,
       "error": "GET /sse did not return SSE stream",
       "note": null,
@@ -811,10 +831,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "down",
           "latency_ms": 223
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "down",
+          "latency_ms": 306
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "DeepWiki",
@@ -824,7 +849,7 @@
         "open"
       ],
       "status": "up",
-      "latency_ms": 327,
+      "latency_ms": 349,
       "transport": "streamable-http",
       "error": null,
       "note": null,
@@ -974,10 +999,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 327
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 349
         }
       ],
       "tool_count": 3,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Atlassian",
@@ -987,11 +1017,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 89,
+      "latency_ms": 65,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -1137,10 +1167,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 89
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 65
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Asana",
@@ -1150,11 +1185,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 107,
+      "latency_ms": 246,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -1300,10 +1335,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 107
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 246
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Notion",
@@ -1313,7 +1353,7 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 137,
+      "latency_ms": 71,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
@@ -1463,10 +1503,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 137
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 71
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Intercom",
@@ -1476,11 +1521,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 81,
+      "latency_ms": 136,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -1626,10 +1671,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 81
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 136
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Cloudflare",
@@ -1639,7 +1689,7 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 58,
+      "latency_ms": 70,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
@@ -1789,10 +1839,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 58
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 70
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Cloudflare Radar",
@@ -1802,11 +1857,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 46,
+      "latency_ms": 92,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.8,
+      "uptime_90": 96.9,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:07:09Z",
@@ -1962,10 +2017,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 46
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 92
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Neon",
@@ -1975,11 +2035,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 110,
+      "latency_ms": 175,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -2125,10 +2185,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 110
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 175
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Supabase",
@@ -2138,7 +2203,7 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 65,
+      "latency_ms": 114,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
@@ -2288,10 +2353,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 65
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 114
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "PayPal",
@@ -2301,11 +2371,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 154,
+      "latency_ms": 104,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -2451,10 +2521,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 154
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 104
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Square",
@@ -2464,11 +2539,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 1248,
+      "latency_ms": 197,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -2614,10 +2689,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 1248
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 197
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Webflow",
@@ -2627,11 +2707,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 65,
+      "latency_ms": 102,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -2777,10 +2857,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 65
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 102
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Wix",
@@ -2790,11 +2875,11 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 99,
+      "latency_ms": 198,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -2940,10 +3025,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 99
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 198
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "CoinGecko",
@@ -2953,7 +3043,7 @@
         "open"
       ],
       "status": "up",
-      "latency_ms": 2202,
+      "latency_ms": 2048,
       "transport": "legacy-sse",
       "error": null,
       "note": "legacy SSE transport",
@@ -3103,10 +3193,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 2202
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 2048
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Ahrefs",
@@ -3116,7 +3211,7 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 88,
+      "latency_ms": 114,
       "transport": "streamable-http",
       "error": null,
       "note": "HTTP 401 (auth required)",
@@ -3266,10 +3361,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 88
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 114
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Globalping",
@@ -3279,11 +3379,11 @@
         "open"
       ],
       "status": "up",
-      "latency_ms": 272,
+      "latency_ms": 191,
       "transport": "legacy-sse",
       "error": null,
       "note": "HTTP 401 (auth required)",
-      "uptime_90": 96.6,
+      "uptime_90": 96.7,
       "recent_checks": [
         {
           "ts": "2026-04-21T00:37:10Z",
@@ -3429,10 +3529,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 272
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 191
         }
       ],
       "tool_count": null,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     },
     {
       "name": "Microsoft Learn",
@@ -3442,7 +3547,7 @@
         "official"
       ],
       "status": "up",
-      "latency_ms": 200,
+      "latency_ms": 86,
       "transport": "streamable-http",
       "error": null,
       "note": null,
@@ -3597,10 +3702,15 @@
           "ts": "2026-04-22T12:57:15Z",
           "status": "up",
           "latency_ms": 200
+        },
+        {
+          "ts": "2026-04-22T14:43:56Z",
+          "status": "up",
+          "latency_ms": 86
         }
       ],
       "tool_count": 3,
-      "checked_at": "2026-04-22T12:57:15Z"
+      "checked_at": "2026-04-22T14:43:56Z"
     }
   ]
 }
