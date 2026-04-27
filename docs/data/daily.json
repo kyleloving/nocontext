@@ -37,10 +37,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Microsoft Learn": {
@@ -81,10 +81,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "GitHub Copilot": {
@@ -125,10 +125,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Sentry": {
@@ -171,8 +171,8 @@
     "2026-04-27": {
       "up": 0,
       "degraded": 0,
-      "down": 5,
-      "total": 5
+      "down": 6,
+      "total": 6
     }
   },
   "Linear": {
@@ -213,10 +213,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Figma": {
@@ -257,10 +257,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Semgrep": {
@@ -303,8 +303,8 @@
     "2026-04-27": {
       "up": 0,
       "degraded": 0,
-      "down": 5,
-      "total": 5
+      "down": 6,
+      "total": 6
     }
   },
   "DeepWiki": {
@@ -345,10 +345,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Atlassian": {
@@ -389,10 +389,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Asana": {
@@ -433,10 +433,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Notion": {
@@ -477,10 +477,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Intercom": {
@@ -521,10 +521,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Cloudflare": {
@@ -565,10 +565,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Neon": {
@@ -609,10 +609,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Supabase": {
@@ -653,10 +653,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "PayPal": {
@@ -697,10 +697,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Square": {
@@ -741,10 +741,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Webflow": {
@@ -785,10 +785,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Wix": {
@@ -829,10 +829,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "CoinGecko": {
@@ -873,10 +873,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Ahrefs": {
@@ -917,10 +917,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   },
   "Globalping": {
@@ -961,10 +961,10 @@
       "total": 23
     },
     "2026-04-27": {
-      "up": 5,
+      "up": 6,
       "degraded": 0,
       "down": 0,
-      "total": 5
+      "total": 6
     }
   }
 }
