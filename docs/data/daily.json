@@ -157,10 +157,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Microsoft Learn": {
@@ -321,10 +321,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "GitHub Copilot": {
@@ -485,10 +485,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Sentry": {
@@ -651,8 +651,8 @@
     "2026-05-17": {
       "up": 0,
       "degraded": 0,
-      "down": 16,
-      "total": 16
+      "down": 17,
+      "total": 17
     }
   },
   "Linear": {
@@ -813,10 +813,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Figma": {
@@ -977,10 +977,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Semgrep": {
@@ -1143,8 +1143,8 @@
     "2026-05-17": {
       "up": 0,
       "degraded": 0,
-      "down": 16,
-      "total": 16
+      "down": 17,
+      "total": 17
     }
   },
   "DeepWiki": {
@@ -1305,10 +1305,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Atlassian": {
@@ -1469,10 +1469,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Asana": {
@@ -1633,10 +1633,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Notion": {
@@ -1797,10 +1797,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Intercom": {
@@ -1961,10 +1961,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Cloudflare": {
@@ -2125,10 +2125,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Neon": {
@@ -2289,10 +2289,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Supabase": {
@@ -2453,10 +2453,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "PayPal": {
@@ -2617,10 +2617,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Square": {
@@ -2781,10 +2781,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Webflow": {
@@ -2945,10 +2945,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Wix": {
@@ -3109,10 +3109,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "CoinGecko": {
@@ -3273,10 +3273,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Ahrefs": {
@@ -3437,10 +3437,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   },
   "Globalping": {
@@ -3601,10 +3601,10 @@
       "total": 18
     },
     "2026-05-17": {
-      "up": 16,
+      "up": 17,
       "degraded": 0,
       "down": 0,
-      "total": 16
+      "total": 17
     }
   }
 }
