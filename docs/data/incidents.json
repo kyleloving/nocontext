@@ -30,12 +30,23 @@
       "duration_min": null
     }
   ],
-  "DeepWiki": [],
+  "DeepWiki": [
+    {
+      "started_at": "2026-06-02T02:30:05Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
   "Atlassian": [
     {
       "started_at": "2026-04-21T00:37:10Z",
       "resolved_at": "2026-04-21T00:44:27Z",
       "duration_min": 7
+    },
+    {
+      "started_at": "2026-06-02T02:30:05Z",
+      "resolved_at": null,
+      "duration_min": null
     }
   ],
   "Asana": [
