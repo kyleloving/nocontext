@@ -72,7 +72,13 @@
       "duration_min": 7
     }
   ],
-  "Supabase": [],
+  "Supabase": [
+    {
+      "started_at": "2026-06-16T00:00:11Z",
+      "resolved_at": null,
+      "duration_min": null
+    }
+  ],
   "PayPal": [
     {
       "started_at": "2026-04-21T00:37:10Z",
