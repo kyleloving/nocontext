@@ -91,6 +91,11 @@
       "started_at": "2026-04-21T00:37:10Z",
       "resolved_at": "2026-04-21T00:44:27Z",
       "duration_min": 7
+    },
+    {
+      "started_at": "2026-06-17T19:47:57Z",
+      "resolved_at": null,
+      "duration_min": null
     }
   ],
   "Webflow": [
@@ -115,8 +120,8 @@
     },
     {
       "started_at": "2026-06-17T17:35:55Z",
-      "resolved_at": null,
-      "duration_min": null
+      "resolved_at": "2026-06-17T19:47:57Z",
+      "duration_min": 132
     }
   ],
   "Ahrefs": [],
