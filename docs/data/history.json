@@ -1,13 +1,6 @@
 {
   "Cloudflare Radar": [
     {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 61,
-      "note": "HTTP 401 (auth required)",
-      "transport": "streamable-http"
-    },
-    {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
       "latency_ms": 266,
@@ -629,16 +622,16 @@
       "latency_ms": 52,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 236,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Microsoft Learn": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 88,
-      "note": null,
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -1261,16 +1254,16 @@
       "latency_ms": 196,
       "note": null,
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 70,
+      "note": null,
+      "transport": "streamable-http"
     }
   ],
   "GitHub Copilot": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 224,
-      "note": "HTTP 401 (auth required)",
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -1893,15 +1886,16 @@
       "latency_ms": 82,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 44,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Sentry": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "down",
-      "latency_ms": 147,
-      "error": "GET /sse did not return SSE stream"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "down",
@@ -2435,15 +2429,15 @@
       "status": "down",
       "latency_ms": 114,
       "error": "GET /sse did not return SSE stream"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "down",
+      "latency_ms": 115,
+      "error": "GET /sse did not return SSE stream"
     }
   ],
   "Linear": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "down",
-      "latency_ms": 114,
-      "error": "GET /sse did not return SSE stream"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "down",
@@ -2977,16 +2971,15 @@
       "status": "down",
       "latency_ms": 51,
       "error": "GET /sse did not return SSE stream"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "down",
+      "latency_ms": 56,
+      "error": "GET /sse did not return SSE stream"
     }
   ],
   "Figma": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 76,
-      "note": "HTTP 401 (auth required)",
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -3609,15 +3602,16 @@
       "latency_ms": 163,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 183,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Semgrep": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "down",
-      "latency_ms": 207,
-      "error": "GET /sse did not return SSE stream"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "down",
@@ -4151,16 +4145,15 @@
       "status": "down",
       "latency_ms": 282,
       "error": "GET /sse did not return SSE stream"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "down",
+      "latency_ms": 316,
+      "error": "GET /sse did not return SSE stream"
     }
   ],
   "DeepWiki": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 113,
-      "note": null,
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -4783,16 +4776,16 @@
       "latency_ms": 316,
       "note": null,
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 307,
+      "note": null,
+      "transport": "streamable-http"
     }
   ],
   "Atlassian": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 120,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -5415,16 +5408,16 @@
       "latency_ms": 123,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 70,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "Asana": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 268,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -6047,16 +6040,16 @@
       "latency_ms": 176,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 198,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "Notion": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 60,
-      "note": "HTTP 401 (auth required)",
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -6679,16 +6672,16 @@
       "latency_ms": 51,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 59,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Intercom": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 72,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -7311,16 +7304,16 @@
       "latency_ms": 103,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 83,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "Cloudflare": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 43,
-      "note": "HTTP 401 (auth required)",
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -7943,16 +7936,16 @@
       "latency_ms": 44,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 43,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Neon": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 124,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -8575,16 +8568,16 @@
       "latency_ms": 138,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 94,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "Supabase": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 50,
-      "note": "HTTP 401 (auth required)",
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -9205,16 +9198,15 @@
       "latency_ms": 64,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "down",
+      "latency_ms": 12051,
+      "error": "timeout"
     }
   ],
   "PayPal": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 68,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -9837,16 +9829,16 @@
       "latency_ms": 71,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 291,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "Square": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 129,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -10469,16 +10461,16 @@
       "latency_ms": 114,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 101,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "Webflow": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 73,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -11101,16 +11093,16 @@
       "latency_ms": 49,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 130,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "Wix": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 153,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -11733,16 +11725,16 @@
       "latency_ms": 133,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 151,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
     }
   ],
   "CoinGecko": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 1799,
-      "note": "legacy SSE transport",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -12365,16 +12357,16 @@
       "latency_ms": 1628,
       "note": "legacy SSE transport",
       "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 784,
+      "note": "legacy SSE transport",
+      "transport": "legacy-sse"
     }
   ],
   "Ahrefs": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 140,
-      "note": "HTTP 401 (auth required)",
-      "transport": "streamable-http"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -12997,16 +12989,16 @@
       "latency_ms": 116,
       "note": "HTTP 401 (auth required)",
       "transport": "streamable-http"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 80,
+      "note": "HTTP 401 (auth required)",
+      "transport": "streamable-http"
     }
   ],
   "Globalping": [
-    {
-      "ts": "2026-06-28T22:51:38Z",
-      "status": "up",
-      "latency_ms": 412,
-      "note": "HTTP 401 (auth required)",
-      "transport": "legacy-sse"
-    },
     {
       "ts": "2026-06-28T23:57:58Z",
       "status": "up",
@@ -13627,6 +13619,13 @@
       "ts": "2026-07-06T11:09:41Z",
       "status": "up",
       "latency_ms": 242,
+      "note": "HTTP 401 (auth required)",
+      "transport": "legacy-sse"
+    },
+    {
+      "ts": "2026-07-06T14:34:43Z",
+      "status": "up",
+      "latency_ms": 300,
       "note": "HTTP 401 (auth required)",
       "transport": "legacy-sse"
     }
