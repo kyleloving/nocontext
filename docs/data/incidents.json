@@ -97,6 +97,11 @@
       "started_at": "2026-07-06T14:34:43Z",
       "resolved_at": "2026-07-06T17:24:38Z",
       "duration_min": 170
+    },
+    {
+      "started_at": "2026-07-15T18:51:50Z",
+      "resolved_at": null,
+      "duration_min": null
     }
   ],
   "PayPal": [
