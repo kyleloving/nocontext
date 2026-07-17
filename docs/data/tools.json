@@ -1,18 +1,32 @@
 {
   "DeepWiki": {
-    "fetched_at": "2026-07-17T20:31:39Z",
+    "fetched_at": "2026-07-17T21:29:10Z",
     "tools": [
       {
-        "name": "read_wiki_structure",
-        "description": "Get a list of documentation topics for a GitHub repository.\n\nArgs:\n    repoName: GitHub repository in owner/repo format (e.g. \"facebook/react\")",
+        "name": "ask_question",
+        "description": "Ask any question about a GitHub repository and get an AI-powered, context-grounded response.\n\nArgs:\n    repoName: GitHub repository or list of repositories (max 10) in owner/repo format\n    question: The question to ask about the repository",
         "inputSchema": {
           "properties": {
             "repoName": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              ]
+            },
+            "question": {
               "type": "string"
             }
           },
           "required": [
-            "repoName"
+            "repoName",
+            "question"
           ],
           "type": "object"
         },
@@ -67,30 +81,16 @@
         }
       },
       {
-        "name": "ask_question",
-        "description": "Ask any question about a GitHub repository and get an AI-powered, context-grounded response.\n\nArgs:\n    repoName: GitHub repository or list of repositories (max 10) in owner/repo format\n    question: The question to ask about the repository",
+        "name": "read_wiki_structure",
+        "description": "Get a list of documentation topics for a GitHub repository.\n\nArgs:\n    repoName: GitHub repository in owner/repo format (e.g. \"facebook/react\")",
         "inputSchema": {
           "properties": {
             "repoName": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": {
-                    "type": "string"
-                  },
-                  "type": "array"
-                }
-              ]
-            },
-            "question": {
               "type": "string"
             }
           },
           "required": [
-            "repoName",
-            "question"
+            "repoName"
           ],
           "type": "object"
         },
@@ -115,7 +115,7 @@
     ]
   },
   "Microsoft Learn": {
-    "fetched_at": "2026-07-17T20:31:39Z",
+    "fetched_at": "2026-07-17T21:29:10Z",
     "tools": [
       {
         "name": "microsoft_docs_search",
