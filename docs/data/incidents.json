@@ -152,6 +152,11 @@
       "started_at": "2026-06-17T17:35:55Z",
       "resolved_at": "2026-06-17T19:47:57Z",
       "duration_min": 132
+    },
+    {
+      "started_at": "2026-07-21T00:57:11Z",
+      "resolved_at": null,
+      "duration_min": null
     }
   ],
   "Ahrefs": [],
