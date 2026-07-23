@@ -1,10 +1,10 @@
 {
   "DeepWiki": {
-    "fetched_at": "2026-07-23T01:09:04Z",
+    "fetched_at": "2026-07-23T04:28:50Z",
     "tools": [
       {
         "name": "ask_question",
-        "description": "Ask any question about a GitHub repository and get an AI-powered, context-grounded response.\n\nArgs:\n    repoName: GitHub repository or list of repositories (max 10) in owner/repo format\n    question: The question to ask about the repository",
+        "description": "Ask any question about a GitHub repository and get an AI-powered, context-grounded response.",
         "inputSchema": {
           "properties": {
             "repoName": {
@@ -18,9 +18,11 @@
                   },
                   "type": "array"
                 }
-              ]
+              ],
+              "description": "GitHub repository or list of repositories (max 10) in owner/repo format."
             },
             "question": {
+              "description": "The question to ask about the repository.",
               "type": "string"
             }
           },
@@ -50,10 +52,11 @@
       },
       {
         "name": "read_wiki_contents",
-        "description": "View documentation about a GitHub repository.\n\nArgs:\n    repoName: GitHub repository in owner/repo format (e.g. \"facebook/react\")",
+        "description": "View documentation about a GitHub repository.",
         "inputSchema": {
           "properties": {
             "repoName": {
+              "description": "GitHub repository in owner/repo format (e.g. \"facebook/react\").",
               "type": "string"
             }
           },
@@ -82,10 +85,11 @@
       },
       {
         "name": "read_wiki_structure",
-        "description": "Get a list of documentation topics for a GitHub repository.\n\nArgs:\n    repoName: GitHub repository in owner/repo format (e.g. \"facebook/react\")",
+        "description": "Get a list of documentation topics for a GitHub repository.",
         "inputSchema": {
           "properties": {
             "repoName": {
+              "description": "GitHub repository in owner/repo format (e.g. \"facebook/react\").",
               "type": "string"
             }
           },
@@ -115,7 +119,7 @@
     ]
   },
   "Microsoft Learn": {
-    "fetched_at": "2026-07-23T01:09:04Z",
+    "fetched_at": "2026-07-23T04:28:50Z",
     "tools": [
       {
         "name": "microsoft_docs_search",
