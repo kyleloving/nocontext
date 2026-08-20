@@ -59,6 +59,11 @@
       "started_at": "2026-04-21T00:37:10Z",
       "resolved_at": "2026-04-21T00:44:27Z",
       "duration_min": 7
+    },
+    {
+      "started_at": "2026-08-20T12:21:51Z",
+      "resolved_at": null,
+      "duration_min": null
     }
   ],
   "Notion": [],
