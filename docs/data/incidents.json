@@ -40,6 +40,11 @@
       "started_at": "2026-06-02T02:30:05Z",
       "resolved_at": "2026-06-02T07:08:19Z",
       "duration_min": 278
+    },
+    {
+      "started_at": "2026-08-26T05:21:39Z",
+      "resolved_at": null,
+      "duration_min": null
     }
   ],
   "Atlassian": [
