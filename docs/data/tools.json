@@ -1,10 +1,10 @@
 {
   "DeepWiki": {
-    "fetched_at": "2026-09-21T22:11:29Z",
+    "fetched_at": "2026-09-22T00:48:21Z",
     "tools": [
       {
-        "name": "ask_question",
-        "description": "Ask any question about a GitHub repository and get an AI-powered, context-grounded response.",
+        "name": "ask_wiki_question",
+        "description": "Ask any question about a GitHub repository's codebase and get an AI-powered answer\ngrounded in its DeepWiki.",
         "inputSchema": {
           "properties": {
             "repoName": {
@@ -119,7 +119,7 @@
     ]
   },
   "Microsoft Learn": {
-    "fetched_at": "2026-09-21T22:11:29Z",
+    "fetched_at": "2026-09-22T00:48:21Z",
     "tools": [
       {
         "name": "microsoft_docs_search",
