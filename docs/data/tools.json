@@ -1,6 +1,6 @@
 {
   "DeepWiki": {
-    "fetched_at": "2026-10-07T00:06:27Z",
+    "fetched_at": "2026-10-07T05:50:52Z",
     "tools": [
       {
         "name": "ask_wiki_question",
@@ -119,12 +119,12 @@
     ]
   },
   "Microsoft Learn": {
-    "fetched_at": "2026-10-07T00:06:27Z",
+    "fetched_at": "2026-10-07T05:50:52Z",
     "tools": [
       {
         "name": "microsoft_docs_search",
         "title": "Microsoft Docs Search",
-        "description": "Search official Microsoft/Azure documentation to find the most relevant and trustworthy content for a user's query. This tool returns up to 10 high-quality content chunks (each max 500 tokens), extracted from Microsoft Learn and other official sources. Each result includes the article title, URL, and a self-contained content excerpt optimized for fast retrieval and reasoning. Always use this tool to quickly ground your answers in accurate, first-party Microsoft/Azure knowledge.\n\n## Follow-up Pattern\nTo ensure completeness, use microsoft_docs_fetch when high-value pages are identified by search. The fetch tool complements search by providing the full detail. This is a required step for comprehensive results.",
+        "description": "Search official Microsoft/Azure documentation for the most relevant and trustworthy content.\nReturns up to 10 high-quality content chunks with title, URL, and excerpt.\n\n## Usage:\nAlways use this tool first to ground answers in official Microsoft/Azure knowledge when facing Microsoft/Azure related questions, then use microsoft_docs_fetch for complete page content when needed.",
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -188,7 +188,7 @@
       {
         "name": "microsoft_code_sample_search",
         "title": "Microsoft Code Sample Search",
-        "description": "Search for code snippets and examples in official Microsoft Learn documentation. This tool retrieves relevant code samples from Microsoft documentation pages providing developers with practical implementation examples and best practices for Microsoft/Azure products and services related coding tasks. This tool will help you use the **LATEST OFFICIAL** code snippets to empower coding capabilities.\n\n## When to Use This Tool\n- When you are going to provide sample Microsoft/Azure related code snippets in your answers.\n- When you are **generating any Microsoft/Azure related code**.\n\n## Usage Pattern\nInput a descriptive query, or SDK/class/method name to retrieve related code samples. The optional parameter `language` can help to filter results.\n\nEligible values for `language` parameter include: csharp javascript typescript python powershell azurecli al sql java kusto cpp go rust ruby php",
+        "description": "Search for code snippets in official Microsoft Learn documentation.\nReturns relevant code samples with practical implementation examples for Microsoft/Azure products. Helps you use the **LATEST OFFICIAL** code snippets.\n\n## When to Use:\n- When providing sample Microsoft/Azure related code snippets\n- When generating any Microsoft/Azure related code\n\n## Usage:\nInput a descriptive query or SDK/class/method name. Optional 'language' parameter filters results.\n\nEligible languages: csharp, javascript, typescript, python, powershell, azurecli, al, sql, java, kusto, cpp, go, rust, ruby, php.",
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -250,7 +250,7 @@
       {
         "name": "microsoft_docs_fetch",
         "title": "Microsoft Docs Fetch",
-        "description": "Fetch and convert a Microsoft Learn documentation webpage to markdown format. This tool retrieves the latest complete content of Microsoft documentation webpages including Azure, .NET, Microsoft 365, and other Microsoft technologies.\n\n## When to Use This Tool\n- When search results provide incomplete information or truncated content\n- When you need complete step-by-step procedures or tutorials\n- When you need troubleshooting sections, prerequisites, or detailed explanations\n- When search results reference a specific page that seems highly relevant\n- For comprehensive guides that require full context\n\n## Usage Pattern\nUse this tool AFTER microsoft_docs_search when you identify specific high-value pages that need complete content. The search tool gives you an overview; this tool gives you the complete picture.\n\n## URL Requirements\n- The URL must be a valid HTML documentation webpage from the microsoft.com domain\n- Binary files (PDF, DOCX, images, etc.) are not supported\n\n## Output Format\nmarkdown with headings, code blocks, tables, and links preserved.",
+        "description": "Fetch complete content from a Microsoft documentation page and convert to markdown.\n\n## When to Use:\n- Search results are incomplete or truncated\n- Need complete procedures, troubleshooting steps, or detailed explanations\n- Found a highly relevant page in search results\n\n## Workflow:\nUse after microsoft_docs_search to get full content from high-value pages.\n\n## URL Requirements:\nMust be a valid microsoft.com domain URL.\n\n## Returns:\nMarkdown with headings, code blocks, tables, and links preserved.",
         "inputSchema": {
           "type": "object",
           "properties": {
