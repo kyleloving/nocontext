@@ -85,6 +85,11 @@
       "started_at": "2026-04-21T00:37:10Z",
       "resolved_at": "2026-04-21T00:44:27Z",
       "duration_min": 7
+    },
+    {
+      "started_at": "2026-11-02T19:46:50Z",
+      "resolved_at": null,
+      "duration_min": null
     }
   ],
   "Supabase": [
