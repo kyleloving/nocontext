@@ -1,9 +1,13 @@
 {
   "DeepWiki": {
-    "fetched_at": "2026-11-02T19:46:50Z",
+    "fetched_at": "2026-11-03T01:54:17Z",
     "tools": [
       {
-        "name": "ask_wiki_question",
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
         "description": "Ask any question about a GitHub repository's codebase and get an AI-powered answer\ngrounded in its DeepWiki.",
         "inputSchema": {
           "properties": {
@@ -30,8 +34,10 @@
             "repoName",
             "question"
           ],
-          "type": "object"
+          "type": "object",
+          "additionalProperties": false
         },
+        "name": "ask_wiki_question",
         "outputSchema": {
           "properties": {
             "result": {
@@ -44,14 +50,14 @@
           "type": "object",
           "x-fastmcp-wrap-result": true
         },
-        "_meta": {
-          "_fastmcp": {
-            "tags": []
-          }
-        }
+        "title": "Ask Wiki Question"
       },
       {
-        "name": "read_wiki_contents",
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
         "description": "View documentation about a GitHub repository.",
         "inputSchema": {
           "properties": {
@@ -63,8 +69,10 @@
           "required": [
             "repoName"
           ],
-          "type": "object"
+          "type": "object",
+          "additionalProperties": false
         },
+        "name": "read_wiki_contents",
         "outputSchema": {
           "properties": {
             "result": {
@@ -77,14 +85,14 @@
           "type": "object",
           "x-fastmcp-wrap-result": true
         },
-        "_meta": {
-          "_fastmcp": {
-            "tags": []
-          }
-        }
+        "title": "Read Wiki Contents"
       },
       {
-        "name": "read_wiki_structure",
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
         "description": "Get a list of documentation topics for a GitHub repository.",
         "inputSchema": {
           "properties": {
@@ -96,8 +104,10 @@
           "required": [
             "repoName"
           ],
-          "type": "object"
+          "type": "object",
+          "additionalProperties": false
         },
+        "name": "read_wiki_structure",
         "outputSchema": {
           "properties": {
             "result": {
@@ -110,16 +120,12 @@
           "type": "object",
           "x-fastmcp-wrap-result": true
         },
-        "_meta": {
-          "_fastmcp": {
-            "tags": []
-          }
-        }
+        "title": "Read Wiki Structure"
       }
     ]
   },
   "Microsoft Learn": {
-    "fetched_at": "2026-11-02T19:46:50Z",
+    "fetched_at": "2026-11-03T01:54:17Z",
     "tools": [
       {
         "name": "microsoft_docs_search",
